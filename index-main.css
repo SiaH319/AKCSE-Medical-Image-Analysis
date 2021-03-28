@@ -82,3 +82,21 @@ section {
   justify-content: flex-start;
   align-items: center;
 }
+
+h3 {
+  color: white;
+  margin: 4rem;
+}
+
+p { 
+  color: white;
+}
+
+.boxed {
+  background-color: black;
+  border: 1px solid black ;
+  fill: black;
+  width: fit-content;
+  height: 300px;
+  
+}
