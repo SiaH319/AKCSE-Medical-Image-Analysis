@@ -11,19 +11,19 @@
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 2rem;
   padding: 5rem;
 }
 
 a {
   color: white;
   text-decoration: none;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 nav {
