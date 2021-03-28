@@ -27,13 +27,14 @@ a {
 }
 
 nav {
-  background: black;
+  
   color: white;
   padding: 3rem;
 }
 
 nav h1 {
   float: left;
+  color: white;
 }
 
 nav ul {
@@ -86,6 +87,8 @@ section {
 h3 {
   color: white;
   margin: 4rem;
+  position: center
+  ;
 }
 
 p { 
