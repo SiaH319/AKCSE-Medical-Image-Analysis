@@ -14,19 +14,20 @@
 
 
 h1 {
-  font-size: 4 rem;
+  font-size: 4rem;
   text-transform: uppercase;
+  color: white;
 }
 
 h2 {
-  font-size: 4 rem;
+  font-size: 4rem;
   padding: 5 rem;
 }
 
 a {
   color: white;
   text-decoration: none;
-  font-size: 3 rem;
+  font-size: 3rem;
 }
 
 nav {
@@ -83,7 +84,7 @@ body {
   font-size: 20px;
   position: absolute;
   left: 30%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
 }
 
 .two {
@@ -91,7 +92,7 @@ body {
   font-size: 20px;
   position: absolute;
   right: 30%;
-  border-bottom: 10pcx solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -101,7 +102,7 @@ body {
   position: absolute;
   left: 20%;
   top: 75%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -111,7 +112,7 @@ body {
   position: absolute;
   top: 75%;
   left: 50%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -121,7 +122,7 @@ body {
   position: absolute;
   top: 75%;
   left: 80%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -131,7 +132,7 @@ body {
   position: absolute;
   top: 100%;
   left: 30%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -141,7 +142,7 @@ body {
   position: absolute;
   top: 100%;
   right: 30%;
-  border-bottom: 10pcs solid white;
+  border-bottom: 10px solid white;
   margin-bottom: 2rem;
 }
 
@@ -153,7 +154,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   letter-spacing: 2px;
-  color: white;
+  color:black;
   padding-bottom: 10px;
 }
 
