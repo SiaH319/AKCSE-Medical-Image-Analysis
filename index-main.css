@@ -10,6 +10,10 @@
   clear: both;
 }
 
+.background image {
+  background-size: 100px 100px;
+}
+
 h1 {
   font-size: 2rem;
   text-transform: uppercase;
@@ -23,11 +27,10 @@ h2 {
 a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 nav {
-  
   color: white;
   padding: 3rem;
 }
@@ -86,20 +89,23 @@ section {
 
 h3 {
   color: white;
-  margin: 4rem;
-  position: center
-  ;
+  margin-right: 65%;
+  margin-bottom: 60%;
 }
 
-p { 
+.ml3 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+p {
   color: white;
 }
 
 .boxed {
   background-color: black;
-  border: 1px solid black ;
+  border: 1px solid black;
   fill: black;
   width: fit-content;
   height: 300px;
-  
 }
