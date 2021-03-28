@@ -6,6 +6,16 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+span {
+  opacity: 0;
+  transition: all 5s ease;
+  transform: translateY(50px);
+}
+
+span.fade {
+  opacity: 1;
+}
+
 .clear {
   clear: both;
 }
@@ -77,25 +87,16 @@ img {
   margin-bottom: 2rem;
 }
 
-section {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+span {
+  opacity: 0;
+  transition: all 1s ease;
+  transform: translateY(100px);
 }
 
 h3 {
-  color: white;
+  color: papayawhip;
   margin-right: 65%;
   margin-bottom: 60%;
-}
-
-.ml3 {
-  font-weight: 900;
-  font-size: 3.5em;
 }
 
 p {
