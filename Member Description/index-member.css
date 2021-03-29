@@ -31,8 +31,13 @@ a {
 
 nav {
   background-color: black;
+<<<<<<< HEAD:Member Description/index-member.css
   color: black;
   padding: 2rem;
+=======
+  color: white;
+  padding: 1.5rem;
+>>>>>>> 684d5f1e906ec4d86e8eb85ae4545f41fa08a122:index-member.css
 }
 
 nav h1 {
