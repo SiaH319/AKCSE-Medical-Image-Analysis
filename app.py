@@ -1,12 +1,7 @@
-from flask import flask, render_template
+from bs4 import BeautifulSoup
+import requests
 
+with open('index-main.html') as html_file:
+    soup = BeautifulSoup(html_file, 'lxml')
 
-
-app = Flask(_name_)
-
-@app.route ()
-
-def index():
-    return render_template ('index-main.html')
-
-    
+print(soup)
