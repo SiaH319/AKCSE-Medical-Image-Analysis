@@ -1,8 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
 
-with open('index-project.html') as html_file:
-    soup = BeautifulSoup(html_file, 'lxml')
+source = requests.get('http://127.0.0.1:5502/index-project.html').text
+
+soup = BeautifulSoup(source, 'lxml')
+
+print(soup.prettify())
+
 
 print(soup)
 
