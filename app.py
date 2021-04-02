@@ -1,14 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 
-source = requests.get('http://127.0.0.1:5502/index-project.html').text
+with open('index-project.html') as html_file:
+    soup = BeautifulSoup(html_file, 'lxml')
 
-soup = BeautifulSoup(source, 'lxml')
+print(soup)
 
+article = soup.find('div', class_='container')
+# print(article)
 
-section = soup.find('section')
-
-print(section)
-
-
-
+headline = container.h2
+print(headline)
