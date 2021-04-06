@@ -1,17 +1,21 @@
 from bs4 import BeautifulSoup
 import requests
 
-source = requests.get('http://127.0.0.1:5502/index-project.html').text
+
+source = requests.get('http://127.0.0.1:5502/scraping.html').text
 
 soup = BeautifulSoup(source, 'lxml')
 
 print(soup.prettify())
 
 
-print(soup)
 
-article = soup.find('div', class_='container')
-# print(article)
 
-headline = container.h2
-print(headline)
+@app.route ('/post', methods= ['POST'])
+def post():
+    value = request.form ['test']
+    return value
+
+if __name__== '__main__':
+    app.run()
+
