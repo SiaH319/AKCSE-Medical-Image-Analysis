@@ -10,7 +10,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def getvalue():
-    test = request.form['test']
+    test = request.form('test')
     print(test)
     return render_template("pass.html", t=test)
 
