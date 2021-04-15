@@ -1,1 +1,0 @@
-# AKCSE-Medical-Image-Analysis
