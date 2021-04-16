@@ -16,6 +16,5 @@ def post():
     value = request.form ['test']
     return value
 
-if __name__== '__main__':
-    app.run()
+
 
