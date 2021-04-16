@@ -4,20 +4,17 @@
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color:black;
 }
 
 .clear {
   clear: both;
 }
 
-.h1,
 h1 {
   font-size: 2rem;
-  text-align: center;
   text-transform: uppercase;
-  color: white;
 }
+
 h2 {
   font-size: 2rem;
   padding: 5rem;
@@ -26,49 +23,68 @@ h2 {
 a {
   color: white;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 nav {
-  background-color: black;
-<<<<<<< HEAD:Member Description/index-member.css
-  color: black;
-  padding: 2rem;
-=======
   color: white;
-  padding: 1.5rem;
->>>>>>> 684d5f1e906ec4d86e8eb85ae4545f41fa08a122:index-member.css
+  width: 100%;
+  height: 60px;
 }
 
 nav h1 {
   float: left;
+  color: white;
+  font-size: 30px;
+  line-height: 55px;
+  padding: 25px 20px;
 }
 
 nav ul {
   float: right;
-  list-style: none;
+  padding-right: 5rem;
 }
 
-nav li {
+nav ul li {
   float: left;
-  margin: 0rem 4rem;
+  list-style: none;
+  position: relative;
 }
 
-.hero-section {
+nav ul li a {
+  display: block;
+  color: white;
+  font-size: 20px;
+  padding: 35px 30px;
+  display: block;
+  text-decoration: none;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 0px 0px 4px 4px;
+}
+
+nav ul li:hover ul {
+  display: block;
+}
+
+nav ul li ul li {
+  width: 180px;
+  border-radius: 4px;
+}
+
+nav ul li ul li a {
   text-align: center;
+  padding: 8px 14px;
   color: black;
-  padding: 6rem;
-  font-size: 3rem;
 }
 
-.hero-section button {
-  margin-top: 3rem;
-  padding: 1rem 4rem;
-  background: black;
-  border: none;
-  color: black;
-  cursor: pointer;
-  border-radius: 1rem;
+nav ul li ul li a:hover {
+  background-color: rgb(218, 216, 216);
 }
 
 body {
@@ -187,5 +203,3 @@ element.style {
 img {
   border-radius: 0%;
 }
-
-
