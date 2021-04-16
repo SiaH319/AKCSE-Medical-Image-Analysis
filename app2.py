@@ -15,4 +15,4 @@ def getvalue():
     return render_template("pass.html", t=test)
 
 
-if __name__ == '__main__':
+if __name__ == '__main__'
