@@ -18,18 +18,11 @@
 .clear {
   clear: both;
 }
-h1 {
-  font-size: 2.5 rem;
+h1 h2 {
   margin-bottom: 2rem;
   text-transform: uppercase;
 }
 
-h2 {
-  font-size: 30px;
-  text-decoration-line: underline;
-  text-align: center;
-  padding-bottom: 3%;
-}
 
 header {
   padding: 20px;
@@ -150,8 +143,9 @@ p {
                 <li><a href="{{ url_for('members') }}">Members</a></li>
                 <li><a>Project</a>
                     <ul>
-                        <li><a href="{{ url_for('projectDemo') }}">Demo</a></li>
-                        <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
+                      <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
+                      <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
+              <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
                     </ul>
                 </li>
 
@@ -165,81 +159,58 @@ p {
     <section id="main" class="wrapper">
         <div class="container">
             <header class="major special">
-                <h2>Project Description</h2>
+                <h2 style =  "font-size: 30px;
+                text-decoration-line: underline;
+                text-align: center;
+                padding-bottom: 3%;">Project Description</h2>
                 
              
             </header>
 
             <!-- Text -->
-            <section class=hero-section>
-                <h1> Web Development Team</h1>
-                <p> As a front end team we worked on the main website development. 
-                    The website includes the project description, member description along with project simulator page. Using HTML and CSS, we constructed the main structure of the web page. 
-                    For web design we used Javascript. Furthermore, we used Python to receive image input & transfer the received image to the Python program. 
-                    We then displayed the output image/text from the Python to the website and ran the Python program using HTML(website).</p>
+            <div style ="  padding-left: 50px;">
+              
+              <h2> Dataset </h2>
+              <h1 style = "text-align: left;"> - Brain Mapping:</h1> 
+              <ul>	
+                <li> Datasets are obtained through google image scraping and from https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection. </li>
+                <li> For mask images, JSON files are created by VGG Image Annotator and then converted to png file.</li>
+              </ul>
+              <br>
+              <h1 style = "text-align: left;"> - Tumor Detection & Classification:</h1> 
+              <ul>
+                <li> Datasets are obtained from https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri.</li>
+              </ul>
+              <br>
+              <h1 style = "text-align: left;"> - Data Augmentation:</h1> 
+              <ul>
+                <li>	Purpose: the massive increase in the scale of datasets that will be used for training/validation/test process for CNN model and U-Net architecture.</li>
+                  <li>	Transformed versions of the original image dataset are created by applying image flip/rotation, changing image contrast, etc. </li>
+            </ul>
 
-                <h1> Data Scraping</h1>
-                <p> Data Scaping Team: Dataset: where you got those data, etc
-                    Data Scraping:
-                    3D to 2D Conversion: 
-                    Data Augmentation:
-                    Image Classification Using CNN:
-                    
-                    We created a data scraping code to automatically download large samples of sagittal MRI images from Google. 
-                    We further filtered out the downloaded files using image classification to find the best test samples. 
-                    3D Medical images in MHA and DICOM format were also analyzed and collected to broaden our sample size for machine learning. 
-                    Slicer was used to view 3D DICOM images and MATLAB was used to convert 3D MHA images into 2D binary images for processing.</p>
+            <br>
+            <h2> Brain Mapping: </h2>
 
-                <h1> Image Segmentation</h1>
-                <p> Image segmentation team: Mask layer generation:
-                    U-Net Model:
-                    The U-Net architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation. 
-                    Between each layer, the size of the layer is reduced to avoid overflow. It is implemented with Keras functional API.</p>
-                    <img src="{{url_for('static', filename='project-description-2.png')}}" height= "500px" width="700px" >
+            <h1 style = "text-align: left;"> - Input Validation (Image Classification):</h1> 
+          <ul><li>User input is validified through image classification using the CNN model. Only a valid type of image, sagittal view of brain MRI, can be used for brain mapping.</li>	</ul>
+            <h1 style = "text-align: left;"> - Brain Mapping (Image Segmentation):</h1> 
+              <ul><li>	U-Net architecture is used for brain mapping. The U-Net architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation. Between each layer, the size of the layer is reduced to avoid overflow. </li>	</ul>
+               <br>
+              <h2> Tumor Detection & Classification: </h2>
 
-<h1> Image Augmentation</h1>
-<p>Image Augmentation
-Purpose: For massive increase in the scale of datasets that will be used for training/validation/test process during image classification.</p>
-<img src="{{url_for('static', filename='project-description-1.png')}}" height= "500px" width="700px" >
+              <h1 style = "text-align: left;"> - Input Validation (Image Classification):</h1> 
+              <ul><li>	User input is validified through image classification using the CNN model. Only a valid type of image, brain MRI (it can be any view), can be used for brain mapping.</li>	</ul>
+               
+              <h1 style = "text-align: left;"> - Tumor Detection & Classification:</h1> 
 
-<p>→ It is necessary to create transformed versions of original images, such as by applying image flip/rotation, changing image contrast, etc.
+              <ul><li>	Through CNN model image classification, the given image can be classified as one of the following: no tumor, glioma, meningioma, and pituitary.</li>	</ul>
+                <br>
+              <h2>  Web Application: </h2>
 
-Tools: Augmenting data using PyTorch (open source machine learning library)
-→ Torchvision.transforms modules are used for image transformation.
-Link: https://pytorch.org/
-
-Procedure:
-Load Data
-→ Suppose that datasets are given (from (2) and (3)) with original brain images and its corresponding masked images. Datasets must be already splitted into training/validation/test set and the only training set (and possibly validation set) will be used for data augmentation.
-Create a new class that takes a Dataset argument where the Dataset refers to PyTorch’s Dataset from torch.utils.data module.
-→ The class should include function transform where data augmentation occurs
-
-Prepare a three (or more) datasets:
-Original datasets (original brain images and its masked images)
-Augmented datasets 1
-Augmented datasets 2
-… (As many augmented datasets as desired)
-
-Initialize each dataset by passing self, the parameter for image paths, and the parameter for masked(segmented) image path from training set, into the class.
-During the transformation (from the transform function within the class):
-Images (both original brain image and its masked image) are resized
-Images are randomly flipped (vertically and horizontally), and randomly rotated. 
-(!!! Brain images and its corresponding masked images are transformed/augmented in a same fashion)
- Images are converted into tensor form, and normalized
- 
-The class returns both transformed brain images and its masked images
-Create three (or more) DataLoader objects and insert each transformed datasets (from 3) as an argument for the object.
-→ DataLoader class is designed to iterate all the values in the dataset and returns its tuples, instead of using for-loops to iterate over the dataset.
-Save images as a png format from DataLoaders into directory
-→ Make a large folder for storing augmented results. Create subfolders for every different brain image. Inside each subfolders, store:
-Original brain image
-Original brain masked image
-Augmented(1) brain image
-Augmented(1) brain masked image
-Augmented(2) brain image
-Augmented(2) brain masked image</p>
-
-
+             
+              <ul><li>Application is created using Flask and it is deployed on AWS (tba maybe Heroku??). </li>	</ul>
+              
+          </div>
 </section>
            
 
