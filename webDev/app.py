@@ -153,8 +153,23 @@ def RhinaKimLinkedin():
 @app.route('/JamesSungLinkedin')
 def JamesSungLinkedin():
     return redirect("https://www.linkedin.com/in/james-sung-4a1b3a193/")
-           
-             
+
+@app.route('/dataset1')
+def dataset1():
+    return redirect("https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection")
+               
+@app.route('/dataset2')
+def dataset2():
+    return redirect("https://www.robots.ox.ac.uk/~vgg/software/via/")
+
+@app.route('/dataset3')
+def dataset3():
+    return redirect("https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri")
+
+@app.route('/dataset4')
+def dataset4():
+    return redirect("https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/")
+
 if __name__ == '__main__':
     app.run(debug=True)
 

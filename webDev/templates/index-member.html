@@ -71,6 +71,13 @@ body {
   color: #ccc;
 }
 
+.profile h6 {
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+
 .profile p {
   font-size: 16px;
   margin-top: 20px;
@@ -308,11 +315,13 @@ body {
     </header>
 
 
-<br><br><br>
+
     <section class="hero-section">
+
+<br><br><br>
     <div class="container">
-        <h1 class="heading">Our Team</h1>
-        <br><br><br>
+        <h1 class="heading" style = "color:papayawhip;">Meet Our Team</h1>
+    <br><br><br>
         <div class="profiles">
           <div class="profile">
             <img src="{{url_for('static', filename='member-SiaHam.png')}}"class="profile-img">
@@ -320,45 +329,47 @@ body {
             <h4 class="user-name">Sia Ham</h5>
             <h5>VP Software Engineering</h5>
             <h5>Project Manager</h5>
-            <p>McGill University, Dec 22 <br>
+            <br>
+            <h6 align="left">McGill University, Dec 22 <br>
                 Bachelor of Software Engineering <br>
+               📧 <i>sia.ham@mail.mcgill.ca </i><br>
                 <a href="{{ url_for('SiaHamGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
                 &nbsp; 
                 <a href="{{ url_for('SiaHamLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
-            </p>
+            </h6>
           </div>
           <div class="profile">
             <img src="{{url_for('static', filename='member-DanielKwon.png')}}"class="profile-img">
     
             <h4 class="user-name">Daniel Kwon</h5>
             <h5>VP Neuroscience</h5>
-            <h5>Project Manager</h5>
-            <p>McGill University, May 22 <br>
+            <h5>Project Manager</h5><br>
+            <h6>McGill University, May 22 <br>
                 Bachelor of Science - Neuroscience <br>
-                </p>
+            </h6>
           </div>
           <div class="profile">
             <img src="{{url_for('static', filename='member-RhinaKim.png')}}"class="profile-img">
     
             <h4 class="user-name">Rhina Kim</h5>
-            <h5>Image Segmenation Team</h5>
-            <p>Concordia University, June 22 <br>
+            <h5>Image Segmenation Team</h5><br>
+            <h6>Concordia University, June 22 <br>
                 Bachelor of Computer Science
                 <a href="{{ url_for('RhinaKimGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
                 &nbsp; 
                 <a href="{{ url_for('RhinaKimLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
-            </p>
+            </h6>
           </div>
           <div class="profile">
             <img src="{{url_for('static', filename='member-JamesSung.png')}}"class="profile-img">
     
             <h4 class="user-name">James Sung</h5>
-            <h5>Data Analysis Team</h5>
-            <p>McGill University, May 2023 <br>
+            <h5>Data Analysis Team</h5><br>
+            <h6>McGill University, May 2023 <br>
                 Bachelor of Science - Neuroscience 
                 <br>
                 <a href="{{ url_for('JamesSungLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
-            </p>
+            </h6>
           </div>
           
         </div>
@@ -372,24 +383,24 @@ body {
 
             
             <h4 class="user-name">Anna Li</h4>
-            <h5>Image Segmenation Team</h5>
-            <p>McGill University, May 22 <br>
+            <h5>Image Segmenation Team</h5><br>
+            <h6>McGill University, May 22 <br>
                 Bachelor of Science - Neuroscience <br>
-                </p></div>
+                </h6></div>
           <div class="profile">
             <img src="{{url_for('static', filename='member-SarahHwang.jpg')}}"class="profile-img">
     
             <h4 class="user-name">Sarah Hwang</h4>
-            <h5>Web Frontend Team</h5>
-            <p>McGill University, May 2023<br>
-                Bachelor of Science - Anatomy and Cell Biology
+            <h5>Web Frontend Team</h5><br>
+            <h6>McGill University, May 2023<br>
+                Bachelor of Science - Anatomy and Cell Biology</h6>
           </div>
           <div class="profile">
             <img src="{{url_for('static', filename='member-SorbinKim.jpg')}}"class="profile-img">
     
             <h4 class="user-name">Jessica Sorbin Kim</h4>
-            <h5>Web Frontend Team</h5>
-            <p>Marianopolis College, May 2021</p>
+            <h5>Web Frontend Team</h5><br>
+            <h6>Marianopolis College, May 2021</h6>
           </div>          
         </div>
       </div>
