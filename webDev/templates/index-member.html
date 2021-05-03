@@ -2,355 +2,398 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AKCSE Medical Image Analysis</title>
-  <link rel="icon" href="{{url_for('static', filename='logo.ico')}}">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{url_for('static', filename='logo.ico')}}">
 
-    .clear {
-      clear: both;
-    }
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
-    h1 {
-      font-size: 2rem;
-      text-transform: uppercase;
-    }
+* {
+  padding: 0;
+  margin: 0;
+}
 
-    h2 {
-      font-size: 2rem;
-      padding: 5rem;
-    }
+body {
+  background-color: #12172b;
+  font-family: "Poppins", sans-serif;
+}
 
-    a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.3rem;
-    }
+.container {
+  margin: 20px 40px;
+  color: white;
+}
 
-    nav {
-      color: white;
-      width: 100%;
-      height: 60px;
-    }
+.heading {
+  font-size: 60px;
+  color: white;
+}
 
-    nav h1 {
-      float: left;
-      color: white;
-      font-size: 30px;
-      line-height: 55px;
-      padding: 25px 20px;
-    }
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
 
-    nav ul {
-      float: right;
-      padding-right: 5rem;
-    }
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
 
-    nav ul li {
-      float: left;
-      list-style: none;
-      position: relative;
-    }
+.profile {
+  flex-basis: 260px;
+}
 
-    nav ul li a {
-      display: block;
-      color: white;
-      font-size: 20px;
-      padding: 35px 30px;
-      display: block;
-      text-decoration: none;
-    }
+.profile .profile-img {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
 
-    nav ul li ul {
-      display: none;
-      position: absolute;
-      background-color: white;
-      padding: 10px;
-      border-radius: 0px 0px 4px 4px;
-    }
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
 
-    nav ul li:hover ul {
-      display: block;
-    }
+.user-name {
+  margin-top: 30px;
+  font-size: 35px;
+  color: papayawhip;
+}
 
-    nav ul li ul li {
-      width: 180px;
-      border-radius: 4px;
-    }
+.profile h5 {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #ccc;
+}
 
-    nav ul li ul li a {
-      text-align: center;
-      padding: 8px 14px;
-      color: black;
-    }
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: justify;
+}
 
-    nav ul li ul li a:hover {
-      background-color: rgb(218, 216, 216);
-    }
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
 
-    body {
-      height: 50%;
-    }
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .one {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      left: 30%;
-      border-bottom: 10px solid white;
-    }
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 80px 60px;
+    font-size: 20px;
+  }
+}
 
-    .two {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      right: 30%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
 
-    .three {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      left: 20%;
-      top: 75%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+  .heading span {
+    font-size: 15px;
+  }
 
-    .four {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      top: 75%;
-      left: 50%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+  .profiles {
+    margin: 20px 0;
+  }
 
-    .five {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      top: 75%;
-      left: 80%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+  .profile p {
+    margin: 20px 10px 80px 10px;
+  }
+}
 
-    .six {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      top: 100%;
-      left: 30%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+        body {
+            background-repeat: no-repeat;
+            background-color: black;
+        }
 
-    .seven {
-      color: black;
-      font-size: 20px;
-      position: absolute;
-      top: 100%;
-      right: 30%;
-      border-bottom: 10px solid white;
-      margin-bottom: 2rem;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
 
-    .team {
-      margin: 75px;
-    }
+        span {
+            opacity: 0;
+            transition: all 5s ease;
+            transform: translateY(50px);
+        }
 
-    .logo {
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: white;
-      padding-bottom: 10px;
-    }
+        span.fade {
+            opacity: 1;
+        }
 
-    h1:after {
-      content: "";
-      background: black;
-      display: block;
-      height: 3px;
-      width: 150px;
-      margin: 10px auto;
-    }
+        .clear {
+            clear: both;
+        }
 
-    h4 {
-      text-align: center;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: black;
-      padding-bottom: 10px;
-    }
+        .background image {
+            background-size: 100px 100px;
+        }
 
-    .profile {
-      margin-top: 25px;
-    }
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
 
-    element.style {
-      margin-left: 100px;
-    }
+        h2 {
+            font-size: 2rem;
+            padding: 5rem;
+        }
 
-    img {
-      border-radius: 0%;
-    }
-  </style>
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        nav {
+            color: white;
+            width: 100%;
+            height: 60px;
+        }
+
+        nav h1 {
+            float: left;
+            color: white;
+            font-size: 30px;
+            line-height: 55px;
+            padding: 25px 20px;
+        }
+
+        nav ul {
+            float: right;
+            padding-right: 5rem;
+        }
+
+        nav ul li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            padding: 35px 30px;
+            display: block;
+            text-decoration: none;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 180px;
+            border-radius: 4px;
+        }
+
+        nav ul li ul li a {
+            text-align: center;
+            padding: 8px 14px;
+            color: black;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: rgb(218, 216, 216);
+        }
+
+        .hero-section {
+            text-align: center;
+            color: black;
+            padding: 6rem;
+            font-size: 3rem;
+        }
+
+        .hero-section button {
+            margin-top: 3rem;
+            padding: 1rem 4rem;
+            background: black;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        body {
+            height: 50%;
+        }
+
+        img {
+            border-radius: 10rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        span {
+            opacity: 0;
+            transition: all 1s ease;
+            transform: translateY(100px);
+        }
+
+        h3 {
+            color: papayawhip;
+            margin-right: 65%;
+            margin-bottom: 70%;
+            margin-top: 10%;
+        }
+
+        p {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 100%;
+        }
+
+        .boxed {
+            background-color: black;
+            border: 1px solid black;
+            fill: black;
+            width: fit-content;
+            height: 300px;
+        }
+    </style>
 
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="android-brain_icon-icons.com_66654.ico">
-  <title>AKCSE Medical Image Analysis</title>
 
 </head>
 
-<style>
-  body {
-    background-color: black;
-  }
-</style>
 
 <body>
-  <header>
 
-    <nav>
-      <h1 id="logo"> AKCSE Medical Image Analysis </h1>
-      <ul>
-        <li><a href="{{ url_for('mainPage') }}">Home</a></li>
-        <li><a href="{{ url_for('members') }}">Members</a></li>
-        
 
-          <li><a>Project</a>
+    <header>
+        <nav>
+            <h1 id="logo"> AKCSE McGill 2020-2021: Medical Image Analysis Project </h1>
             <ul>
-              <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
-              <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
-      <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
+                <li><a href="{{ url_for('mainPage') }}">Home</a></li>
+                <li><a href="{{ url_for('members') }}">Members</a></li>
+                <li><a>Project</a>
+                    <ul>
+                        <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
+                        <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
+                        <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
+                    </ul>
+                </li>
+
             </ul>
-        </li>
 
-      </ul>
-      <div class="clear"></div>
-    </nav>
-  </header>
-  <section class="team">
-    <div class="container" style="color: white;">
-      <h1 id="logo2">OUR TEAM</h1>
+        </nav>
 
-      <div class="row">
+    </header>
 
 
-        <div class="col-md-6 profile text "></div>
-        <div class="img-box">
-
-
-          <img src="{{url_for('static', filename='member-SiaHam.png')}}" class="image-responsive" style="width: 300px;float:right;">
-          <h2 style="padding-right: 5%;">Sia Ham</h2>
-          <p>McGill University, Dec 2022
-            Bachelor of Engineering - Software Engineering
-            VP of Software Engineering / Project Manager
-            https://github.com/SiaH319
-            https://www.linkedin.com/in/sia-ham/
-          </p>
+<br><br><br>
+    <section class="hero-section">
+    <div class="container">
+        <h1 class="heading">Our Team</h1>
+        <br><br><br>
+        <div class="profiles">
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SiaHam.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Sia Ham</h5>
+            <h5>VP Software Engineering</h5>
+            <h5>Project Manager</h5>
+            <p>McGill University, Dec 22 <br>
+                Bachelor of Software Engineering <br>
+                <a href="{{ url_for('SiaHamGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
+                &nbsp; 
+                <a href="{{ url_for('SiaHamLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-DanielKwon.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Daniel Kwon</h5>
+            <h5>VP Neuroscience</h5>
+            <h5>Project Manager</h5>
+            <p>McGill University, May 22 <br>
+                Bachelor of Science - Neuroscience <br>
+                </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-RhinaKim.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Rhina Kim</h5>
+            <h5>Image Segmenation Team</h5>
+            <p>Concordia University, June 22 <br>
+                Bachelor of Computer Science
+                <a href="{{ url_for('RhinaKimGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
+                &nbsp; 
+                <a href="{{ url_for('RhinaKimLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-JamesSung.png')}}"class="profile-img">
+    
+            <h4 class="user-name">James Sung</h5>
+            <h5>Data Analysis Team</h5>
+            <p>McGill University, May 2023 <br>
+                Bachelor of Science - Neuroscience 
+                <br>
+                <a href="{{ url_for('JamesSungLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          
         </div>
       </div>
 
-      <div class="col-md-6 profile text-center">
+      <div class="container">    
+        <div class="profiles">
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-AnnaLi.png')}}"class="profile-img">
+    
 
-        <div id="Vision" class="Vision">
-          <img src="" class="image-responsive" style="width:250px;">
-          <h2>Daniel Kwon</h2>
-          <p>McGill University, May 2022
-            Bachelor of Science - NeuroscienceVP of Neuroscience / Data Analysis Team</p>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-6 profile text-center">
-
-        <div id="Vision" class="Vision">
-          <img src="{{url_for('static', filename='member-AnnaLi.png')}}" class="image-responsive" style="width:340px;float:left;">
-          <h2>Anna Li</h2>
-          <p>McGill University, May 2022
-            Bachelor of Science - Neuroscience
-            Image Segmentation Team
-          </p>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-6 profile text-center">
-
-        <div id="Vision" class="Vision">
-          <img src="{{url_for('static', filename='member-RhinaKim.png')}}" class="image-responsive" style="width:350px;float:right;">
-          <h2>Rhina Kim</h2>
-          <p>Concordia University, June 2022
-            Bachelor Of Computer Science
-            Image Segmentation Team
-            https://github.com/chihiroanihr
-            https://www.linkedin.com/in/rhina-kim-568ab3178/
-          </p>
-
+            
+            <h4 class="user-name">Anna Li</h4>
+            <h5>Image Segmenation Team</h5>
+            <p>McGill University, May 22 <br>
+                Bachelor of Science - Neuroscience <br>
+                </p></div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SarahHwang.jpg')}}"class="profile-img">
+    
+            <h4 class="user-name">Sarah Hwang</h4>
+            <h5>Web Frontend Team</h5>
+            <p>McGill University, May 2023<br>
+                Bachelor of Science - Anatomy and Cell Biology
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SorbinKim.jpg')}}"class="profile-img">
+    
+            <h4 class="user-name">Jessica Sorbin Kim</h4>
+            <h5>Web Frontend Team</h5>
+            <p>Marianopolis College, May 2021</p>
+          </div>          
         </div>
       </div>
-
-      <div class="col-md-6 profile text-center">
-
-        <div id="Vision" class="Vision">
-          <img src="{{url_for('static', filename='member-JamesSung.png')}}" class="image-responsive" style="width:250px;float:left;">
-          <h2>James Sung</h2>
-          <p>McGill University, May 2023
-            Bachelor of Science - Neuroscience
-            Data Analysis Team
-            https://www.linkedin.com/in/james-sung-4a1b3a193/
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 profile text-center">
-
-        <div id="Vision" class="Vision">
-          <img src="{{url_for('static', filename='member-SarahHwang.jpg')}}" class="image-responsive" style="width:320px;float:right;">
-          <h2>Sarah Hwang</h2>
-          <p> McGill University, May 2023
-            Bachelor of Science - Anatomy and Cell Biology
-            Web Development Team
-          </p>
-        </div>
-      </div>
-
-      <div class="col-md-6 profile text-center">
-
-        <div id="Vision" class="Vision">
-          <img src="{{url_for('static', filename='member-SorbinKim.jpg')}}" class="image-responsive" style="width:320px;float:left;">
-          <h2>Jessica Sorbin Kim</h2>
-          <p> Marianopolis College, May 2021
-            Web Development Team
-          </p>
-
-        </div>
-
-
-      </div>
-  </section>
+    </section>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_from_directory
+from flask import Flask, redirect, render_template, request, send_from_directory
 import cv2
 import keras
 from tensorflow.keras.models import Sequential
@@ -133,7 +133,28 @@ def load_img():
     global COUNT
     return send_from_directory(__location__+'/static', "{}.jpg".format(COUNT-1))
 
+@app.route('/SiaHamGithub')
+def SiaHamGithub():
+    return redirect("https://github.com/SiaH319")
 
+@app.route('/SiaHamLinkedin')
+def SiaHamLinkedin():
+    return redirect("https://www.linkedin.com/in/sia-ham")
+
+@app.route('/RhinaKimGithub')
+def RhinaKimGithub():
+    return redirect("https://github.com/chihiroanihr")
+
+
+@app.route('/RhinaKimLinkedin')
+def RhinaKimLinkedin():
+    return redirect("https://www.linkedin.com/in/rhina-kim-568ab3178/")
+
+@app.route('/JamesSungLinkedin')
+def JamesSungLinkedin():
+    return redirect("https://www.linkedin.com/in/james-sung-4a1b3a193/")
+           
+             
 if __name__ == '__main__':
     app.run(debug=True)
 
