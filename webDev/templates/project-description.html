@@ -1,221 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{url_for('static', filename='logo.ico')}}">
-    <title>AKCSE Medical Image Analysis</title>
-    <style> 
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
+    <title> AKCSE Medical Image Analysis </title>
 
-.clear {
-  clear: both;
-}
-h1 h2 {
-  margin-bottom: 2rem;
-  text-transform: uppercase;
-}
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-color: black;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .background image {
+            background-size: 100px 100px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 2rem;
+            padding: 5rem;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        nav {
+            color: white;
+            width: 100%;
+            height: 60px;
+        }
+
+        nav h1 {
+            float: left;
+            color: white;
+            font-size: 30px;
+            line-height: 55px;
+            padding: 25px 20px;
+        }
+
+        nav ul {
+            float: right;
+            padding-right: 5rem;
+        }
+
+        nav ul li {
+            float: left;
+            list-style: none;
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            font-size: 20px;
+            padding: 35px 30px;
+            display: block;
+            text-decoration: none;
+        }
+
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            background-color: white;
+            padding: 10px;
+            border-radius: 0px 0px 4px 4px;
+        }
+
+        nav ul li:hover ul {
+            display: block;
+        }
+
+        nav ul li ul li {
+            width: 180px;
+            border-radius: 4px;
+        }
+
+        nav ul li ul li a {
+            text-align: center;
+            padding: 8px 14px;
+            color: black;
+        }
+
+        nav ul li ul li a:hover {
+            background-color: rgb(218, 216, 216);
+        }
+
+        .hero-section {
+            text-align: center;
+            color: black;
+            padding: 6rem;
+            font-size: 3rem;
+        }
+
+        .hero-section button {
+            margin-top: 3rem;
+            padding: 1rem 4rem;
+            background: black;
+            border: none;
+            color: black;
+            cursor: pointer;
+            border-radius: 1rem;
+        }
+
+        body {
+            height: 50%;
+        }
+
+        img {
+            border-radius: 10rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
 
 
-header {
-  padding: 20px;
-}
+        h3 {
+            color: papayawhip;
+            margin-right: 65%;
+            margin-bottom: 70%;
+            margin-top: 10%;
+        }
 
-a {
-  color: black;
-  text-decoration: none;
-  font-size: 1.5 rem;
-}
+        p {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 100%;
+        }
 
-h3 {
-  font-size: 2.8rem;
-}
-button {
-  font-size: 1.8rem;
-}
-
-nav {
-  color: black;
-  width: 100%;
-  height: 60px;
-  padding-bottom: 7%;
-  background-color: rgb(163, 162, 162);
-}
-
-nav h1 {
-  float: left;
-  color: black;
-  font-size: 30px;
-  line-height: 55px;
-  padding: 25px 20px;
-}
-
-nav ul {
-  float: right;
-  padding-right: 5rem;
-}
-
-nav ul li {
-  float: left;
-  list-style: none;
-  position: relative;
-}
-
-nav ul li a {
-  display: block;
-  color: black;
-  font-size: 20px;
-  padding: 38px 30px;
-  display: block;
-  text-decoration: none;
-}
-
-nav ul li ul {
-  display: none;
-  position: absolute;
-  background-color: black;
-  padding: 10px;
-  border-radius: 0px 0px 4px 4px;
-}
-
-nav ul li:hover ul {
-  display: block;
-}
-
-nav ul li ul li {
-  width: 180px;
-  border-radius: 4px;
-}
-
-nav ul li ul li a {
-  text-align: center;
-  padding: 8px 14px;
+        .boxed {
+            background-color: black;
+            border: 1px solid black;
+            fill: black;
+            width: fit-content;
+            height: 300px;
+        }
+         div {
+         background-color: black;
+         border-style: solid;
+  border-color:  #fff5cc;
   color: white;
-}
-
-nav ul li ul li a:hover {
-  background-color: rgb(218, 216, 216);
-}
-
-.hero-section h1 {
-  text-align: center;
-  color: rgb(7, 7, 7);
-}
-
-.hero-section button {
-  margin-top: 3rem;
-  padding: 1rem 4rem;
-  background: black;
-  border: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 1rem;
-}
-
-html,
-body {
-  height: 50%;
-}
-p {
-  text-align: justify;
-  top: 100%;
-  padding: 5px;
-  padding-bottom: 60px;
-  padding-top: 0px;
-}
-
-</style>
-</head>
-<body>
-    
-    <header>
-        <nav>
+         width: 90%; 
+         border-radius:15px;
+         padding: 35px;
+         text-align:left;  
+         margin: auto;   
+         outline-offset: 15px;
+         bottom: 10px
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <nav>
             <h1 id="logo"> AKCSE Medical Image Analysis </h1>
             <ul>
-                <li><a href="{{ url_for('mainPage') }}">Home</a></li>
-                <li><a href="{{ url_for('members') }}">Members</a></li>
-                <li><a>Project</a>
-                    <ul>
-                      <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
-                      <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
-              <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
-                    </ul>
-                </li>
-
+               <li><a href="{{ url_for('mainPage') }}">Home</a></li>
+               <li><a href="{{ url_for('members') }}">Members</a></li>
+               <li>
+                  <a>Project</a>
+                  <ul>
+                     <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
+                     <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
+                     <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
+                  </ul>
+               </li>
             </ul>
-
-        </nav>
-
-    </header>
-
-
-    <section id="main" class="wrapper">
-        <div class="container">
-            <header class="major special">
-                <h2 style =  "font-size: 30px;
-                text-decoration-line: underline;
-                text-align: center;
-                padding-bottom: 3%;">Project Description</h2>
-                
-             
-            </header>
-
-            <!-- Text -->
-            <div style ="  padding-left: 50px;">
-              
-              <h2> Dataset </h2>
-              <h1 style = "text-align: left;"> - Brain Mapping:</h1> 
-              <ul>	
-                <li> Datasets are obtained through google image scraping and from https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection. </li>
-                <li> For mask images, JSON files are created by VGG Image Annotator and then converted to png file.</li>
-              </ul>
-              <br>
-              <h1 style = "text-align: left;"> - Tumor Detection & Classification:</h1> 
-              <ul>
-                <li> Datasets are obtained from https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri.</li>
-              </ul>
-              <br>
-              <h1 style = "text-align: left;"> - Data Augmentation:</h1> 
-              <ul>
-                <li>	Purpose: the massive increase in the scale of datasets that will be used for training/validation/test process for CNN model and U-Net architecture.</li>
-                  <li>	Transformed versions of the original image dataset are created by applying image flip/rotation, changing image contrast, etc. </li>
+         </nav>
+      </header>
+      <section id="main" class="wrapper">
+         <header class="major special">
+            <h2 style =  "font-size: 40px;
+               text-align: center;
+               padding-bottom: 3%; color:  white">Project Description</h2>
+         </header>
+         <!-- Text -->
+         <div>
+            <span style = "font-size:xx-large; font-weight: bold;"> Dataset </span> <br><br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Brain Mapping:</span>
+             <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;"> 
+               <li> Datasets are obtained through google image scraping and from https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection. </li>
+               <li> For mask images, JSON files are created by VGG Image Annotator and then converted to png file.</li>
             </ul>
+            <br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Tumor Detection & Classification:</span>
+
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li> Datasets are obtained from https://www.kaggle.com/sartajbhuvaji/brain-tumor-classification-mri.</li>
+            </ul>
+            <br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Data Augmentation:</span>
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li>	Purpose: the massive increase in the scale of datasets that will be used for training/validation/test process for CNN model and U-Net architecture.</li>
+               <li>	Transformed versions of the original image dataset are created by applying image flip/rotation, changing image contrast, etc. </li>
+            </ul>
+            </div>
 
             <br>
-            <h2> Brain Mapping: </h2>
+            <div>
+              <span style = "font-size:xx-large; font-weight: bold;padding-bottom: 5%;"> Brain Mapping </span> <br><br>
+              <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Input Validation (Image Classification):</span>
 
-            <h1 style = "text-align: left;"> - Input Validation (Image Classification):</h1> 
-          <ul><li>User input is validified through image classification using the CNN model. Only a valid type of image, sagittal view of brain MRI, can be used for brain mapping.</li>	</ul>
-            <h1 style = "text-align: left;"> - Brain Mapping (Image Segmentation):</h1> 
-              <ul><li>	U-Net architecture is used for brain mapping. The U-Net architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation. Between each layer, the size of the layer is reduced to avoid overflow. </li>	</ul>
-               <br>
-              <h2> Tumor Detection & Classification: </h2>
+              <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+                <li>User input is validified through image classification using the CNN model. Only a valid type of image, sagittal view of brain MRI, can be used for brain mapping.</li>
+            </ul>
+            <br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Brain Mapping (Image Segmentation):</span>
 
-              <h1 style = "text-align: left;"> - Input Validation (Image Classification):</h1> 
-              <ul><li>	User input is validified through image classification using the CNN model. Only a valid type of image, brain MRI (it can be any view), can be used for brain mapping.</li>	</ul>
-               
-              <h1 style = "text-align: left;"> - Tumor Detection & Classification:</h1> 
-
-              <ul><li>	Through CNN model image classification, the given image can be classified as one of the following: no tumor, glioma, meningioma, and pituitary.</li>	</ul>
-                <br>
-              <h2>  Web Application: </h2>
-
-             
-              <ul><li>Application is created using Flask and it is deployed on AWS (tba maybe Heroku??). </li>	</ul>
-              
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li>	U-Net architecture is used for brain mapping. The U-Net architecture was inspired by U-Net: Convolutional Networks for Biomedical Image Segmentation. Between each layer, the size of the layer is reduced to avoid overflow. </li>
+            </ul>
           </div>
-</section>
-           
+            <br>
+          <div>
+            <span style = "font-size:xx-large; font-weight: bold;padding-bottom: 5%;"> Tumor Detection & Classification </span> <br><br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Input Validation (Image Classification):</span>
 
-</body>
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li>	User input is validified through image classification using the CNN model. Only a valid type of image, brain MRI (it can be any view), can be used for brain mapping.</li>
+            </ul>
+            <br>
+            <span style = "font-size:x-large; font-weight: 500;margin-left: 10px;"> Tumor Detection & Classification:</span>
+
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li>	Through CNN model image classification, the given image can be classified as one of the following: no tumor, glioma, meningioma, and pituitary.</li>
+            </ul>
+          </div>
+          <br>
+        <div>
+            
+            <span style = "font-size:xx-large; font-weight: bold;padding-bottom: 5%;"> Web Application </span> <br>
+            <ul style = "font-size:x-large; font-weight: 350; margin-left: 35px;">
+              <li>Application is created using Flask and it is deployed on AWS (tba maybe Heroku??). </li>
+            </ul>
+         </div>
+         <br>
+         <br>
+      </section>
+   </body>
 </html>
-
-
-

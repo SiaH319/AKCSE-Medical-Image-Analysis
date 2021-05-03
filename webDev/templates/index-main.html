@@ -6,9 +6,115 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{{url_for('static', filename='logo.ico')}}">
-    <title> AKCSE Medical Image Analysis </title>
 
     <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #12172b;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: 20px 40px;
+  color: white;
+}
+
+.heading {
+  font-size: 60px;
+  color: white;
+}
+
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+
+.profile {
+  flex-basis: 260px;
+}
+
+.profile .profile-img {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: grayscale(0);
+}
+
+.user-name {
+  margin-top: 30px;
+  font-size: 35px;
+  color: papayawhip;
+}
+
+.profile h5 {
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 80px 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .heading span {
+    font-size: 15px;
+  }
+
+  .profiles {
+    margin: 20px 0;
+  }
+
+  .profile p {
+    margin: 20px 10px 80px 10px;
+  }
+}
+
         body {
             background-repeat: no-repeat;
             background-color: black;
@@ -173,6 +279,8 @@
     </style>
 
 
+
+
 </head>
 
 
@@ -181,7 +289,7 @@
 
     <header>
         <nav>
-            <h1 id="logo"> AKCSE Medical Image Analysis </h1>
+            <h1 id="logo"> AKCSE McGill 2020-2021: Medical Image Analysis Project </h1>
             <ul>
                 <li><a href="{{ url_for('mainPage') }}">Home</a></li>
                 <li><a href="{{ url_for('members') }}">Members</a></li>
@@ -195,7 +303,7 @@
 
             </ul>
 
-            <img src="{{url_for('static', filename='mainpage.png')}}" align="middle" />
+            <img src="{{url_for('static', filename='mainpage.png')}}" align="right" />
 
             <div class="clear"></div>
         </nav>
@@ -206,20 +314,22 @@
 
     <section class="hero-section">
 
-        <h3 class="java"> Welcome to AKCSE Medical Image Analysis Page! </h3>
+        <h3 class="java"> AKCSE McGill 2020-2021: Medical Image Analysis Project Page</h1>
+        </h3>
+
         <script>
             const text = document.querySelector(".java");
             const strText = text.textContent;
             const splitText = strText.split();
             text.textContent = ("");
-
+        
             for (let i = 0; i < splitText.length; i++) {
                 text.innerHTML += "<span>" + splitText[i] + "</span>";
             }
-
+        
             let char = 0;
             let timer = setInterval(onTick, 50);
-
+        
             function onTick() {
                 const span = text.querySelectorAll('span')[char];
                 span.classList.add('fade');
@@ -229,20 +339,102 @@
                     return;
                 }
             }
-
+        
             function complete() {
                 clearInterval(timer);
                 timer = null;
             }
         </script>
 
-        <p>
-            AKCSE McGill - Medical Image Analysis using brain MRI
-        </p>
 
 
+
+   
+
+    <div class="container">
+        <h1 class="heading" style = "color:papayawhip;">Meet Our Team</h1>
+    <br><br><br>
+        <div class="profiles">
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SiaHam.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Sia Ham</h5>
+            <h5>VP Software Engineering</h5>
+            <h5>Project Manager</h5>
+            <p>McGill University, Dec 22 <br>
+                Bachelor of Software Engineering <br>
+                <a href="{{ url_for('SiaHamGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
+                &nbsp; 
+                <a href="{{ url_for('SiaHamLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-DanielKwon.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Daniel Kwon</h5>
+            <h5>VP Neuroscience</h5>
+            <h5>Project Manager</h5>
+            <p>McGill University, May 22 <br>
+                Bachelor of Science - Neuroscience <br>
+                </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-RhinaKim.png')}}"class="profile-img">
+    
+            <h4 class="user-name">Rhina Kim</h5>
+            <h5>Image Segmenation Team</h5>
+            <p>Concordia University, June 22 <br>
+                Bachelor of Computer Science
+                <a href="{{ url_for('RhinaKimGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
+                &nbsp; 
+                <a href="{{ url_for('RhinaKimLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-JamesSung.png')}}"class="profile-img">
+    
+            <h4 class="user-name">James Sung</h5>
+            <h5>Data Analysis Team</h5>
+            <p>McGill University, May 2023 <br>
+                Bachelor of Science - Neuroscience 
+                <br>
+                <a href="{{ url_for('JamesSungLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
+            </p>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="container">    
+        <div class="profiles">
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-AnnaLi.png')}}"class="profile-img">
+    
+
+            
+            <h4 class="user-name">Anna Li</h4>
+            <h5>Image Segmenation Team</h5>
+            <p>McGill University, May 22 <br>
+                Bachelor of Science - Neuroscience <br>
+                </p></div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SarahHwang.jpg')}}"class="profile-img">
+    
+            <h4 class="user-name">Sarah Hwang</h4>
+            <h5>Web Frontend Team</h5>
+            <p>McGill University, May 2023<br>
+                Bachelor of Science - Anatomy and Cell Biology
+          </div>
+          <div class="profile">
+            <img src="{{url_for('static', filename='member-SorbinKim.jpg')}}"class="profile-img">
+    
+            <h4 class="user-name">Jessica Sorbin Kim</h4>
+            <h5>Web Frontend Team</h5>
+            <p>Marianopolis College, May 2021</p>
+          </div>          
+        </div>
+      </div>
     </section>
-
 </body>
 
 </html>
