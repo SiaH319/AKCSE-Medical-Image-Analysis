@@ -13,11 +13,12 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision.utils import save_image
 
 
+MASKED_DATA_PATH = os.path.abspath("../AKCSE-Medical-Image-Analysis/dataset/sagittal/mask")
+IMG_DATA_PATH = os.path.abspath("../AKCSE-Medical-Image-Analysis/dataset/sagittal/original")
+
 ############################### LOAD DATA FUNCTIONS ###############################
 def load_data_brain():
     # load image files from dataset-mask folder
-    MASKED_DATA_PATH = "../dataset-mask"
-    IMG_DATA_PATH = "../dataset-original"
     masked_data_map = []
     img_data_map = []
     for masked_dir in os.listdir(MASKED_DATA_PATH):
@@ -28,12 +29,12 @@ def load_data_brain():
     # Make data frame
     df_no_masks = pd.DataFrame({"path": img_data_map[:]}) # extract all images that does not contain str "masks" in filepath
     df_masks = pd.DataFrame({"path": masked_data_map[:]}) # extract all images that contains str "masks" in filepath
-    #print(df_masks)
     #print(df_no_masks)
+    #print(df_masks)
 
     # Data sorting
     no_masks = sorted(df_no_masks["path"].values, key=lambda string: int(string.split('.')[0].strip("img")))
-    masks = sorted(df_masks["path"].values, key=lambda string: int(string.split('.')[0].strip("img")))
+    masks = sorted(df_masks["path"].values, key=lambda string: int(string.split('.')[0].strip("_mask").strip("img")))
     #print(no_masks)
     #print(masks)
 
@@ -43,11 +44,11 @@ def load_data_brain():
             #print(no_masks[i], masks[i])
 
             # If there's a mismatch while mapping two files from masked and no-mask images
-            if no_masks[i].split('.')[0].strip("img") != masks[i].split('.')[0].strip("img"):
+            if no_masks[i].split('.')[0].strip("img") != masks[i].split('.')[0].strip("_mask").strip("img"):
                 no_masks_num = int(no_masks[i].split('.')[0].strip("img"))
                 no_masks_num_prev = int(no_masks[i-1].split('.')[0].strip("img"))
-                masks_num = int(masks[i].split('.')[0].strip("img"))
-                masks_num_prev = int(masks[i-1].split('.')[0].strip("img"))
+                masks_num = int(masks[i].split('.')[0].strip("_mask").strip("img"))
+                masks_num_prev = int(masks[i-1].split('.')[0].strip("_mask").strip("img"))
                 # if has duplicated file
                 if no_masks_num - no_masks_num_prev < 1:
                     pop = no_masks.pop(i)
@@ -158,11 +159,11 @@ no_mask_image_list, mask_image_list = load_data_brain()  # returns a list of ori
 no_mask_img_abs_path = []
 mask_img_abs_path = []
 for img in no_mask_image_list:
-    no_masked_dir = "../dataset-original/" + img
+    no_masked_dir = IMG_DATA_PATH + img
     Image.open(no_masked_dir).convert('L').save(img)
     no_mask_img_abs_path.append(no_masked_dir)
 for img in mask_image_list:
-    masked_dir = "../dataset-mask/" + img
+    masked_dir = MASKED_DATA_PATH + img
     mask_img_abs_path.append(masked_dir)
 
 # let’s initialize the dataset class and prepare the data loader.
@@ -316,3 +317,6 @@ for i in range(len(original_datasets)):
     #augmented_dataloader2 = DataLoader(dataset=augmented_datasets2[i], batch_size=2)
     #original_dataloader = DataLoader(dataset=original_datasets[i], batch_size=2)
 '''
+
+if __name__ == '__main__':
+    app.run(debug=True)
