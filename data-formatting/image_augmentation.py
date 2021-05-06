@@ -160,7 +160,7 @@ no_mask_img_abs_path = []
 mask_img_abs_path = []
 for img in no_mask_image_list:
     no_masked_dir = IMG_DATA_PATH + "/" + img
-    Image.open(no_masked_dir).convert('L').save(img)
+    #Image.open(no_masked_dir).convert('L').save(img)
     no_mask_img_abs_path.append(no_masked_dir)
 for img in mask_image_list:
     masked_dir = MASKED_DATA_PATH + "/" + img
