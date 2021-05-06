@@ -87,33 +87,6 @@ def download_images():
 
 
 
-    """
-
-    # extract the link from the div tag
-    imagelinks = []
-    for result in results:
-        text = result.text  # this is a valid json string
-        #print(text)
-
-        text_dict = json.loads(text)  # deserialize json to a Python dict
-        link = text_dict['ou']
-        # image_type = text_dict['ity']
-        imagelinks.append(link)
-
-    print(f'found {len(imagelinks)} images')
-    print('Start downloading...')
-
-    for i, imagelink in enumerate(imagelinks):
-        # open image link and save as file
-        response = requests.get(imagelink)
-
-        imagename = SAVE_FOLDER + '/' + data + str(i + 1) + '.jpg'
-        with open(imagename, 'wb') as file:
-            file.write(response.content)
-
-    print('Done')
-    """
-
 
 
 if __name__ == '__main__':
