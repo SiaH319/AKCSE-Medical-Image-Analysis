@@ -176,7 +176,7 @@ def save_img(img_dataloader, masked_dataloader, index, augmented=None):
         if not os.path.exists(result_dir):
             os.makedirs(result_dir)
         path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
-        path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
+        #path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
     '''
     else:
         original_dir = '../dataset-final/img' + str(index) + '/original'
@@ -186,7 +186,7 @@ def save_img(img_dataloader, masked_dataloader, index, augmented=None):
         path_name_masked = masked_dir + '/img' + str(index) + "_mask.png"
     '''
     save_image(img_dataloader, path_name_img)
-    save_image(masked_dataloader, path_name_masked)
+    #save_image(masked_dataloader, path_name_masked)
 
 
 # Visualizing a Single Batch of Image
