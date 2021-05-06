@@ -171,12 +171,12 @@ for img in mask_image_list:
 # Save images
 def save_img(img_dataloader, masked_dataloader, index, augmented=None):
 
-    if augmented:
-        result_dir = '../dataset/sagittal/original-augmented'
-        if not os.path.exists(result_dir):
-            os.makedirs(result_dir)
-        path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
-        path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
+    #if augmented:
+    result_dir = '../dataset/sagittal/original-augmented'
+    if not os.path.exists(result_dir):
+        os.makedirs(result_dir)
+    path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
+    path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
     '''
     else:
         original_dir = '../dataset-final/img' + str(index) + '/original'
