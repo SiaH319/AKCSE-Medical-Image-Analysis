@@ -186,8 +186,8 @@ def save_img(img_dataloader, masked_dataloader, index, augmented=None):
         path_name_masked = masked_dir + '/img' + str(index) + "_mask.png"
     '''
 
-save_image(img_dataloader, path_name_img)
-save_image(masked_dataloader, path_name_masked)
+    save_image(img_dataloader, path_name_img)
+    save_image(masked_dataloader, path_name_masked)
 
 
 # Visualizing a Single Batch of Image
