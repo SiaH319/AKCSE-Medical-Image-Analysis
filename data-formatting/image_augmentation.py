@@ -96,9 +96,11 @@ class PyTorchImageDataset(Dataset):
     def transform(self, image, mask):
         # Convert to PIL image
         image, mask = F.to_pil_image(image), F.to_pil_image(mask)
+
         # Resize
         #resize = transforms.Resize(size=(512, 512))
         #image, mask = resize(image), resize(mask)
+
         # Random horizontal flipping
         if random.random() > 0.5:
             image, mask = F.hflip(image), F.hflip(mask)
@@ -109,34 +111,38 @@ class PyTorchImageDataset(Dataset):
         if random.random() > 0.5:
             angle = random.choice([-90, -30, -15, 0, 15, 30, 90])
             image, mask = F.rotate(image, angle), F.rotate(mask, angle)
+
         # Transform to tensor
         image, mask = F.to_tensor(image), F.to_tensor(mask)
         # Normalize tensor
         #image, mask = F.normalize(image, (0.5), (0.5), (0.5)), F.normalize(mask, (0.5), (0.5), (0.5))
-        mask = F.normalize(mask, (0.5), (0.5), (0.5))
+        #mask = F.normalize(mask, (0.5), (0.5), (0.5))
+
         return image, mask
 
     def original_transform(self, image, mask):
         # Convert to PIL image
         image, mask = F.to_pil_image(image), F.to_pil_image(mask)
+
         # Resize
         #resize = transforms.Resize(size=(512, 512))
         #image, mask = resize(image), resize(mask)
+
         # Transform to tensor
         image, mask = F.to_tensor(image), F.to_tensor(mask)
+
         # Normalize tensor
         #image, mask = F.normalize(image, (0.5), (0.5), (0.5)), F.normalize(mask, (0.5), (0.5), (0.5))
+
         return image, mask
 
     def __getitem__(self, index):
         image = plt.imread(self.image_paths[index])
-        #image = Image.fromarray(image).convert('RGB')
         image = np.asarray(image*225).astype(np.uint8)
-        #image = np.array(Image.fromarray((image).astype(np.uint8)).resize((512, 512)).convert('RGB'))
-        mask = plt.imread(self.target_paths[index])
-        #mask = Image.fromarray(mask).convert('RBG')
-        mask = np.asarray(mask).astype(np.uint8)
-        #mask = np.array(Image.fromarray((mask).astype(np.uint8)).resize((512, 512)).convert('RGB'))
+
+        mask = Image.open(self.target_paths[index])
+        mask = np.asarray(mask)
+
         if (self.augmentation == True):
             x, y = self.transform(image, mask)
         else:
@@ -160,7 +166,6 @@ no_mask_img_abs_path = []
 mask_img_abs_path = []
 for img in no_mask_image_list:
     no_masked_dir = IMG_DATA_PATH + "/" + img
-    #Image.open(no_masked_dir).convert('L').save(img)
     no_mask_img_abs_path.append(no_masked_dir)
 for img in mask_image_list:
     masked_dir = MASKED_DATA_PATH + "/" + img
@@ -177,7 +182,6 @@ def save_img(img_dataloader, masked_dataloader, index, augmented=None):
             os.makedirs(result_dir)
         path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
         path_name_masked = result_dir + '/img' + str(index) + augmented + "_mask.png"
-        #path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
     '''
     else:
         original_dir = '../dataset-final/img' + str(index) + '/original'

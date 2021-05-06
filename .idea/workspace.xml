@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf14a16e-bdba-4671-92bb-99fb28bb6379" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-formatting/image_augmentation.py" beforeDir="false" afterPath="$PROJECT_DIR$/data-formatting/image_augmentation.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,22 +151,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1280" height="287" key="GridCell.Tab.0.bottom" timestamp="1620317219089">
+    <state width="1280" height="288" key="GridCell.Tab.0.bottom" timestamp="1620343657018">
       <screen x="0" y="25" width="2048" height="1054" />
     </state>
-    <state width="1280" height="287" key="GridCell.Tab.0.bottom/0.25.2048.1054@0.25.2048.1054" timestamp="1620317219089" />
-    <state width="1280" height="287" key="GridCell.Tab.0.center" timestamp="1620317219089">
+    <state width="1280" height="288" key="GridCell.Tab.0.bottom/0.25.2048.1054@0.25.2048.1054" timestamp="1620343657018" />
+    <state width="1280" height="288" key="GridCell.Tab.0.center" timestamp="1620343657018">
       <screen x="0" y="25" width="2048" height="1054" />
     </state>
-    <state width="1280" height="287" key="GridCell.Tab.0.center/0.25.2048.1054@0.25.2048.1054" timestamp="1620317219089" />
-    <state width="1280" height="287" key="GridCell.Tab.0.left" timestamp="1620317219088">
+    <state width="1280" height="288" key="GridCell.Tab.0.center/0.25.2048.1054@0.25.2048.1054" timestamp="1620343657018" />
+    <state width="1280" height="288" key="GridCell.Tab.0.left" timestamp="1620343657017">
       <screen x="0" y="25" width="2048" height="1054" />
     </state>
-    <state width="1280" height="287" key="GridCell.Tab.0.left/0.25.2048.1054@0.25.2048.1054" timestamp="1620317219088" />
-    <state width="1280" height="287" key="GridCell.Tab.0.right" timestamp="1620317219089">
+    <state width="1280" height="288" key="GridCell.Tab.0.left/0.25.2048.1054@0.25.2048.1054" timestamp="1620343657017" />
+    <state width="1280" height="288" key="GridCell.Tab.0.right" timestamp="1620343657018">
       <screen x="0" y="25" width="2048" height="1054" />
     </state>
-    <state width="1280" height="287" key="GridCell.Tab.0.right/0.25.2048.1054@0.25.2048.1054" timestamp="1620317219089" />
+    <state width="1280" height="288" key="GridCell.Tab.0.right/0.25.2048.1054@0.25.2048.1054" timestamp="1620343657018" />
     <state x="1048" y="259" width="670" height="676" key="search.everywhere.popup" timestamp="1618543680748">
       <screen x="0" y="25" width="2048" height="1054" />
     </state>
@@ -174,6 +175,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/AKCSE_Medical_Image_Analysis$image_augmentation__1_.coverage" NAME="image_augmentation (1) Coverage Results" MODIFIED="1618521585222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AKCSE_Medical_Image_Analysis$image_augmentation.coverage" NAME="image_augmentation Coverage Results" MODIFIED="1618544210628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/format-dataset" />
-    <SUITE FILE_PATH="coverage/AKCSE_Medical_Image_Analysis$image_augmentation__2_.coverage" NAME="image_augmentation (2) Coverage Results" MODIFIED="1620317219083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data-formatting" />
+    <SUITE FILE_PATH="coverage/AKCSE_Medical_Image_Analysis$image_augmentation__2_.coverage" NAME="image_augmentation (2) Coverage Results" MODIFIED="1620343657013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data-formatting" />
   </component>
 </project>
