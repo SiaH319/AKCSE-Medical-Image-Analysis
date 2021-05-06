@@ -312,6 +312,3 @@ for i in range(len(original_datasets)):
     #augmented_dataloader2 = DataLoader(dataset=augmented_datasets2[i], batch_size=2)
     #original_dataloader = DataLoader(dataset=original_datasets[i], batch_size=2)
 '''
-
-if __name__ == '__main__':
-    app.run(debug=True)
