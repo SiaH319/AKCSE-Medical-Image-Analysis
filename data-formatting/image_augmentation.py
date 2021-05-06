@@ -13,8 +13,8 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision.utils import save_image
 
 
-MASKED_DATA_PATH = os.path.abspath("../AKCSE-Medical-Image-Analysis/dataset/sagittal/mask")
-IMG_DATA_PATH = os.path.abspath("../AKCSE-Medical-Image-Analysis/dataset/sagittal/original")
+MASKED_DATA_PATH = os.path.abspath("../dataset/sagittal/mask")
+IMG_DATA_PATH = os.path.abspath("../dataset/sagittal/original")
 
 ############################### LOAD DATA FUNCTIONS ###############################
 def load_data_brain():
@@ -159,11 +159,11 @@ no_mask_image_list, mask_image_list = load_data_brain()  # returns a list of ori
 no_mask_img_abs_path = []
 mask_img_abs_path = []
 for img in no_mask_image_list:
-    no_masked_dir = IMG_DATA_PATH + img
+    no_masked_dir = IMG_DATA_PATH + "/" + img
     Image.open(no_masked_dir).convert('L').save(img)
     no_mask_img_abs_path.append(no_masked_dir)
 for img in mask_image_list:
-    masked_dir = MASKED_DATA_PATH + img
+    masked_dir = MASKED_DATA_PATH + "/" + img
     mask_img_abs_path.append(masked_dir)
 
 # let’s initialize the dataset class and prepare the data loader.
@@ -171,24 +171,18 @@ for img in mask_image_list:
 # Save images
 def save_img(img_dataloader, masked_dataloader, index, augmented=None):
 
-    def check_dir_exists(original_dir, masked_dir):
-        if not os.path.exists(original_dir):
-            os.makedirs(original_dir)
-        if not os.path.exists(masked_dir):
-            os.makedirs(masked_dir)
-
     if augmented:
-        original_dir = '../dataset-final/img' + str(index) + augmented + '/original'
-        masked_dir = '../dataset-final/img' + str(index) + augmented + '/mask'
-        check_dir_exists(original_dir, masked_dir)
-        path_name_img = original_dir + '/img' + str(index) + augmented + ".png"
+        result_dir = '../dataset/sagittal/original-augmented'
+        if not os.path.exists(result_dir):
+            os.makedirs(result_dir)
+        path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
         path_name_masked = masked_dir + '/img' + str(index) + augmented + ".png"
     else:
         original_dir = '../dataset-final/img' + str(index) + '/original'
-        masked_dir = '../dataset-final/img' + str(index) + '/mask'
-        check_dir_exists(original_dir, masked_dir)
+        if not os.path.exists(result_dir):
+            os.makedirs(result_dir)
         path_name_img = original_dir + '/img' + str(index) + ".png"
-        path_name_masked = masked_dir + '/img' + str(index) + ".png"
+        path_name_masked = masked_dir + '/img' + str(index) + "_mask.png"
 
     save_image(img_dataloader, path_name_img)
     save_image(masked_dataloader, path_name_masked)
@@ -294,7 +288,7 @@ for i in range(len(original_datasets)):
     # show_img(make_grid(original_masked))
 
     index = i + 1
-    save_img(original_img, original_masked, index, "original")
+    save_img(original_img, original_masked, index)
     save_img(augmented_img1, augmented_masked1, index, "a1")
     save_img(augmented_img2, augmented_masked2, index, "a2")
     save_img(augmented_img3, augmented_masked3, index, "a3")
