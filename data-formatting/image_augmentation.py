@@ -180,16 +180,15 @@ def save_img(img_dataloader, masked_dataloader, index, augmented=None):
         result_dir = '../dataset/sagittal/original-augmented'
         if not os.path.exists(result_dir):
             os.makedirs(result_dir)
-        path_name_img = result_dir + '/img' + str(index) + augmented + ".png"
-        path_name_masked = result_dir + '/img' + str(index) + augmented + "_mask.png"
-    '''
+        path_name_img = result_dir + '/img' + str(index) + "_" + augmented + ".png"
+        path_name_masked = result_dir + '/img' + str(index) +  "_mask_" + augmented + ".png"
     else:
-        original_dir = '../dataset-final/img' + str(index) + '/original'
+        result_dir = '../dataset/sagittal/original-augmented'
         if not os.path.exists(result_dir):
             os.makedirs(result_dir)
-        path_name_img = original_dir + '/img' + str(index) + ".png"
-        path_name_masked = masked_dir + '/img' + str(index) + "_mask.png"
-    '''
+        path_name_img = result_dir + '/img' + str(index) + ".png"
+        path_name_masked = result_dir + '/img' + str(index) + "_mask.png"
+
     save_image(img_dataloader, path_name_img)
     save_image(masked_dataloader, path_name_masked)
 
@@ -294,7 +293,7 @@ for i in range(len(original_datasets)):
     #show_img(make_grid(original_masked))
 
     index = i + 1
-    #save_img(original_img, original_masked, index)
+    save_img(original_img, original_masked, index)
     save_img(augmented_img1, augmented_masked1, index, "a1")
     save_img(augmented_img2, augmented_masked2, index, "a2")
     save_img(augmented_img3, augmented_masked3, index, "a3")
@@ -305,15 +304,3 @@ for i in range(len(original_datasets)):
     save_img(augmented_img8, augmented_masked8, index, "a8")
     save_img(augmented_img9, augmented_masked9, index, "a9")
     save_img(augmented_img10, augmented_masked10, index, "a10")
-
-'''
-for i in range(len(original_datasets)):
-    # Save Images
-    #augmented_dataloader1 = DataLoader(dataset=augmented_datasets1[i], batch_size=2)
-    augmented_no_mask = DataLoader(dataset=next(iter(augmented_datasets1[i])))
-    augmented_mask = DataLoader(dataset=next(iter(augmented_datasets1[i])))
-    save_img(augmented_no_mask, no_mask_image_list)
-    save_img(augmented_mask, mask_image_list)
-    #augmented_dataloader2 = DataLoader(dataset=augmented_datasets2[i], batch_size=2)
-    #original_dataloader = DataLoader(dataset=original_datasets[i], batch_size=2)
-'''
