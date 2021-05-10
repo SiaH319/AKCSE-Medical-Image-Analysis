@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <!---->
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+        <link rel="icon" href="../static/logo.ico">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md sticky-top">
+            <div class='container-fluid'>
+                <!--navbar-brand for Icon-->
+                <a class="navbar-brand text-center" href="../templates/index-main-test.html">AKCSE McGill 2020-2021: Medical Image Analysis Project</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span> <!--navbar icon created-->
+                </button>
+                <!--now, add elements inside collapsed navbar-->
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto"><!--ml-auto push the navigation to the right hand side-->
+                        <li class="nav-item active">
+                            <a class="nav-link text-white" href="{{ url_for('mainPage') }}">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class='nav-link text-white' href="{{ url_for('members') }}">Members</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Project</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <!--<div class="dropdown-divider"></div>-->
+                                <a class="dropdown-item" href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a>
+                                <a class="dropdown-item" href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a>
+                                <a class="dropdown-item" href="{{ url_for('projectDescription') }}">Project Description</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+            <div class='container'>
+            <nav>
+                <h1 id="logo"> AKCSE McGill 2020-2021: Medical Image Analysis Project </h1>
+                <ul>
+                    <li><a href="{{ url_for('mainPage') }}">Home</a></li>
+                    <li><a href="{{ url_for('members') }}">Members</a></li>
+                <li>
+                    <a>Project</a>
+                    <ul>
+                        <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
+                        <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
+                        <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </nav>
+
+    </body>
+    
+</html>
