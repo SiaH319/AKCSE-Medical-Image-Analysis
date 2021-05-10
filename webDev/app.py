@@ -59,7 +59,6 @@ tumorModel.add(Dropout(0.5))
 tumorModel.add(Dense(4, activation='softmax'))
 tumorModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
 
 COUNT = 0
 app = Flask(__name__)
