@@ -4,8 +4,17 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="icon" href="{{url_for('static', filename='logo.ico')}}">
-      <style>
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <!---->
+      <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css"/>
+      <link rel="stylesheet" type="text/css" href="../static/css/animation.css"/>
+      <link rel="icon" href="../static/images/logo.ico">
+      <!--<style>
         @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
          
          body {
@@ -141,26 +150,11 @@
          padding: 10px;
          box-sizing: border-box;
          }
-      </style>
+      </style>-->
    </head>
+   
    <body>
-      <header>
-         <nav>
-            <h1 id="logo"> AKCSE McGill 2020-2021: Medical Image Analysis Project </h1>
-            <ul>
-               <li><a href="{{ url_for('mainPage') }}">Home</a></li>
-               <li><a href="{{ url_for('members') }}">Members</a></li>
-               <li>
-                  <a>Project</a>
-                  <ul>
-                     <li><a href="{{ url_for('brainMappingDemo') }}">Demo: Brain Mapping</a></li>
-                     <li><a href="{{ url_for('tumorDetectionDemo') }}">Demo: Brain Tumor Detection</a></li>
-                     <li><a href="{{ url_for('projectDescription') }}">Project Description</a></li>
-                  </ul>
-               </li>
-            </ul>
-         </nav>
-      </header>
+      {% include "navigation-bar.html" %}
       <section class="hero-section">
       <br>
       <h1 class="heading" style = "color:papayawhip;">Project Description</h1>

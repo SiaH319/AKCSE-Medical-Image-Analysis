@@ -1,0 +1,291 @@
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+body {
+    background: url('../images/mainpage.png') no-repeat;
+    background-size: contain;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+  }
+
+
+/* Extra small devices (portrait phones, less than 544px) 
+No media query since this is the default in Bootstrap because it is "mobile first" */
+
+/* padding for navbar gets bigger */
+.navbar {
+  padding: .8rem; /*1 rem = 16 pixels*/
+  width: 100%;
+}
+.navbar-custom {
+  background-color: rgba(0, 0, 0,  0.6)    /* full opaque green */ 
+}
+/* padding for navbar item */
+.navbar-nav li {
+  padding-right: 20px;
+}
+/* this is a white icon */
+.navbar-toggler{
+  width: 47px;
+  height: 40px;
+  background-color: #000000;
+  border: solid #fff;
+}
+.navbar-toggler .line{
+  width: 100%;
+  float: left;
+  height: 2px;
+  background-color: #fff;
+  margin-bottom: 5px;
+}
+.nav-link {font-size:1rem;}
+  .navbar-nav {
+  padding-left: 1rem;
+}
+.navbar-brand {
+  padding: 1rem;
+  padding-top: 0.4rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: 2em;
+  display:table-cell;
+  vertical-align:middle;
+}
+.header-caption, .meet-team-caption {
+  color: papayawhip;
+  font-size:1.5rem;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+h2 {
+  padding-left: 5%;
+  text-shadow: 2px 2px #111111;
+}
+h1 {
+  font-size:1.4rem;
+  font-weight: bold;
+  margin-top: 0px;
+  line-height: 2rem;
+} /*1rem = 16px*/
+
+#row-meet-team {
+  margin-top: 40%;
+  font-weight: bold;
+}
+#team-member {
+  margin-top: 10%;
+}
+.member {
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.profile-img {
+  height:150px;
+  width: 150px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+.profile-img:hover {
+  filter: grayscale(0);
+}
+.name {
+  font-size: 20px;
+  padding-top: 20px;
+  color: papayawhip;
+}
+.role {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+.info {
+  font-size: 10px;
+  font-weight: 100;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+.link-to-external-profile {
+  width: 60px;
+  padding: 5px;
+}
+
+
+@media (min-width: 460px) { 
+  .header-caption {
+    line-height:30px;
+  }
+  .meet-team-caption {
+    font-size: 20px;
+  }
+}
+/* Bootstrap 4 breakpoints */
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+  h1 {
+    font-size:1.5rem;
+    margin-top: 3px;
+  }
+  .nav-link {font-size:1rem;}
+  .navbar-brand {
+    padding: 1rem; /*1 rem = 16 pixels*/
+  }
+  .header-caption {
+    font-size:2rem;
+    line-height:40px;
+  }
+  .meet-team-caption {
+    font-size: 25px;
+  }
+  .hidden-ss {
+    display: none !important;
+  }
+  .profile-img {
+    height:200px;
+    width: 200px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .name {
+    font-size: 25px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 60px;
+    padding: 5px;
+  }
+}
+@media (min-width: 630px) {  
+  .header-caption {
+    font-size:2.3rem;
+    padding-top:1rem;
+    line-height:40px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 714px) {  
+  .header-caption {
+    font-size:2.5rem;
+    padding-top:3rem;
+    line-height:40px;
+  }
+  .meet-team-caption {
+    font-size: 35px;
+  }
+  .profile-img {
+    height:230px;
+    width: 230px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .name {
+    font-size: 35px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 60px;
+    padding: 5px;
+  }
+}
+@media (min-width: 840px) { 
+  h1 {
+    font-size:1.8rem;
+    margin-top: 3px;
+  }
+  .nav-link {font-size:1.1rem;}
+  .navbar-brand {
+    padding: 1rem; /*1 rem = 16 pixels*/
+  }
+  .header-caption {
+    font-size:3rem;
+    padding-top:3rem;
+    line-height:60px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  h1 {
+    font-size:2rem;
+    margin-top: 3px;
+  }
+  .nav-link {font-size:1.5rem;}
+  .navbar-brand {
+    padding: 1rem; /*1 rem = 16 pixels*/
+  }
+  .header-caption {
+    font-size:3rem;
+    padding-top:4rem;
+    line-height:60px;
+  }
+  .header-caption {
+    font-size:3.5rem;
+    padding-top:4rem;
+    line-height:80px;
+  }
+}
+@media (min-width: 1080px) {
+  .header-caption {
+    font-size:4rem;
+    padding-top:6rem;
+    line-height:90px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .header-caption {
+    font-size:4rem;
+    padding-top:7rem;
+    line-height:100px;
+  } 
+}
+@media (min-width: 1220px) {
+  h1 {font-size:2.5rem;}  
+  .nav-link {font-size:1.5rem;} 
+}
+@media (min-width: 1420px) {   
+  .nav-link {
+    font-size:1.5rem;
+    margin-right: 1.5rem;
+  } 
+  .header-caption {
+    font-size:5rem;
+    padding-top:12rem;
+    line-height:100px;
+  }
+}
