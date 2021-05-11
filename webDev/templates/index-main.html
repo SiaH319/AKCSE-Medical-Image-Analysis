@@ -222,7 +222,7 @@
          position: absolute;
          line-height:80px;
          padding-top:140px;
-         
+
          }
          p {
          color: white;
@@ -266,14 +266,14 @@
             const strText = text.textContent;
             const splitText = strText.split();
             text.textContent = ("");
-            
+
             for (let i = 0; i < splitText.length; i++) {
                 text.innerHTML += "<span>" + splitText[i] + "</span>";
             }
-            
+
             let char = 0;
             let timer = setInterval(onTick, 50);
-            
+
             function onTick() {
                 const span = text.querySelectorAll('span')[char];
                 span.classList.add('fade');
@@ -283,7 +283,7 @@
                     return;
                 }
             }
-            
+
             function complete() {
                 clearInterval(timer);
                 timer = null;
@@ -304,12 +304,12 @@
                      Bachelor of Software Engineering <br>
                      📧 <i>sia.ham@mail.mcgill.ca </i><br>
                      <a href="{{ url_for('SiaHamGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
-                     &nbsp; 
+                     &nbsp;
                      <a href="{{ url_for('SiaHamLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
                   </h6>
                </div>
                <div class="profile">
-                  <img src="{{url_for('static', filename='member-DanielKwon.png')}}"class="profile-img">
+                  <img src="{{url_for('static', filename='member-DanielKwon.jpg')}}"class="profile-img">
                   <h4 class="user-name">
                   Daniel Kwon</h5>
                   <h5>VP Neuroscience</h5>
@@ -328,7 +328,7 @@
                   <h6>Concordia University, June 22 <br>
                      Bachelor of Computer Science
                      <a href="{{ url_for('RhinaKimGithub') }}"><img src="{{url_for('static', filename='github-logo-white.jpg')}}" width="50px" style="padding:0px"></a>
-                     &nbsp; 
+                     &nbsp;
                      <a href="{{ url_for('RhinaKimLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
                   </h6>
                </div>
@@ -339,7 +339,7 @@
                   <h5>Data Analysis Team</h5>
                   <br>
                   <h6>McGill University, May 2023 <br>
-                     Bachelor of Science - Neuroscience 
+                     Bachelor of Science - Neuroscience
                      <br>
                      <a href="{{ url_for('JamesSungLinkedin') }}"><img src="{{url_for('static', filename='linkedin-logo.png')}}" width="50px" style="padding:0px"></a>
                   </h6>
