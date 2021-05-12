@@ -78,12 +78,12 @@ def members():
 def projectDescription():
     return render_template('project-description.html')
 
-@app.route('/project/demo/brain-mapping')
+@app.route('/project/brain-mapping')
 def brainMappingDemo():
     return render_template('project-demo-brain-mapping.html')
 
 
-@app.route('/project/demo/brain-mapping/result', methods=['POST'])
+@app.route('/project/brain-mapping/result', methods=['POST'])
 def brainMappingDemoResult():
     global COUNT
     img = request.files['image']
@@ -101,11 +101,11 @@ def brainMappingDemoResult():
     COUNT += 1
     return render_template('project-demo-brain-mapping-result.html', data=preds)
 
-@app.route('/project/demo/tumor-detection')
+@app.route('/project/tumor-detection')
 def tumorDetectionDemo():
     return render_template('project-demo-tumor-detection.html')
 
-@app.route('/project/demo/tumor-detection/result', methods=['POST'])
+@app.route('/project/tumor-detection-result', methods=['POST'])
 def tumorDetectionDemoResult():
     global COUNT
     img = request.files['image']
@@ -122,7 +122,6 @@ def tumorDetectionDemoResult():
     b = round(prediction[0,1]*100, 2)
     c = round(prediction[0,2]*100, 2)
     d = round(prediction[0,3]*100, 2)
-
 
     preds = np.array([a,b,c,d])
     COUNT += 1
