@@ -1,0 +1,261 @@
+
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("../css/navigation-bar.css");
+
+body {
+    background: url('../images/mainpage.png') no-repeat;
+    background-size: contain;
+    background-color: black;
+    background-attachment: fixed;
+    background-position: 0px 30px;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+  }
+
+
+/* Extra small devices (portrait phones, less than 544px) 
+No media query since this is the default in Bootstrap because it is "mobile first" */
+
+.header-caption{
+  color: papayawhip;
+  font-size:1.5rem;
+  line-height: 20px;
+  font-weight: bold;
+}
+.meet-team-caption {
+  color: papayawhip;
+  font-size:1.5rem;
+  line-height: 20px;
+  font-weight: bold;
+  text-transform:uppercase; 
+  text-align:center;
+}
+
+h2 {
+  padding-left: 5%;
+  text-shadow: 2px 2px #111111;
+}
+#header-section-margin {
+  margin-bottom: 25%;
+}
+#row-meet-team {
+  margin-top: 5%;
+  font-weight: bold;
+}
+#team-member {
+  margin-top: 5%;
+}
+.member {
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+.profile-img {
+  height:130px;
+  width: 130px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+.profile-img:hover {
+  filter: grayscale(0);
+}
+.name {
+  font-size: 18spx;
+  padding-top: 10px;
+  color: papayawhip;
+}
+.role {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #ccc;
+}
+.info {
+  font-size: 8px;
+  letter-spacing: 0px;
+  color: #ccc;
+}
+.link-to-external-profile {
+  width: 40px;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.content {
+  background-color: rgba(0, 0, 0,  0.6)    /* full opaque green */ 
+}
+
+@media (min-width: 322px) {
+  #team-member {
+    margin-top: 10%;
+  }
+  .member {
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+  .profile-img {
+    height:150px;
+    width: 150px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .profile-img:hover {
+    filter: grayscale(0);
+  }
+  .name {
+    font-size: 20px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 50px;
+  }
+}
+@media (min-width: 460px) { 
+  .header-caption {
+    line-height:30px;
+  }
+}
+/* Bootstrap 4 breakpoints */
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+  .header-caption {
+    font-size:2rem;
+    line-height:40px;
+  }
+  .meet-team-caption {
+    font-size: 25px;
+  }
+  .profile-img {
+    height:200px;
+    width: 200px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .name {
+    font-size: 25px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 630px) {  
+  .header-caption {
+    font-size:2.3rem;
+    padding-top:1rem;
+    line-height:40px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 714px) {  
+  .header-caption {
+    font-size:2.5rem;
+    padding-top:3rem;
+    line-height:40px;
+  }
+  .meet-team-caption {
+    font-size: 35px;
+  }
+  .profile-img {
+    height:230px;
+    width: 230px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .name {
+    font-size: 35px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 16px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 60px;
+  }
+}
+@media (min-width: 840px) { 
+  .header-caption {
+    font-size:3rem;
+    padding-top:3rem;
+    line-height:60px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .header-caption {
+    font-size:3.5rem;
+    padding-top:4rem;
+    line-height:80px;
+  }
+}
+@media (min-width: 1080px) {
+  .header-caption {
+    font-size:4rem;
+    padding-top:6rem;
+    line-height:90px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .header-caption {
+    font-size:4rem;
+    padding-top:7rem;
+    line-height:100px;
+  } 
+}
+@media (min-width: 1220px) {
+}
+@media (min-width: 1420px) {   
+  .header-caption {
+    font-size:5rem;
+    padding-top:12rem;
+    line-height:100px;
+  }
+}
