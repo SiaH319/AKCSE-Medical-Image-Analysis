@@ -88,8 +88,8 @@ def brainMappingDemoResult():
     global COUNT
     img = request.files['image']
 
-    img.save(__location__+'/static/{}.jpg'.format(COUNT))
-    img_arr = cv2.imread(__location__+'/static/{}.jpg'.format(COUNT))
+    img.save(__location__+'/static/inputs/{}.jpg'.format(COUNT))
+    img_arr = cv2.imread(__location__+'/static/inputs/{}.jpg'.format(COUNT))
     img_arr = cv2.resize(img_arr, (128,128))
     img_arr = img_arr / 255.0
     img_arr = img_arr.reshape(1, 128,128,3)
@@ -110,8 +110,8 @@ def tumorDetectionDemoResult():
     global COUNT
     img = request.files['image']
 
-    img.save(__location__+'/static/{}.jpg'.format(COUNT))
-    img_arr = cv2.imread(__location__+'/static/{}.jpg'.format(COUNT))
+    img.save(__location__+'/static/inputs/{}.jpg'.format(COUNT))
+    img_arr = cv2.imread(__location__+'/static/inputs/{}.jpg'.format(COUNT))
 
     img_arr = cv2.resize(img_arr, (128,128))
     img_arr = img_arr / 255.0
@@ -130,7 +130,7 @@ def tumorDetectionDemoResult():
 @app.route('/load_img')
 def load_img():
     global COUNT
-    return send_from_directory(__location__+'/static', "{}.jpg".format(COUNT-1))
+    return send_from_directory(__location__+'/static/inputs', "{}.jpg".format(COUNT-1))
 
 @app.route('/SiaHamGithub')
 def SiaHamGithub():

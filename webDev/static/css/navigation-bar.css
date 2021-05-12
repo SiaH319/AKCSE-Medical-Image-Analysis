@@ -14,6 +14,8 @@ No media query since this is the default in Bootstrap because it is "mobile firs
 }
 /* padding for navbar item */
 .navbar-nav li {
+    padding-top: 5px;
+    padding-bottom: 5px;
     padding-right: 20px;
 }
   /* this is a white icon */
@@ -30,8 +32,10 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     background-color: #fff;
     margin-bottom: 5px;
   }
-  .nav-link {font-size:1rem;}
-    .navbar-nav {
+  .nav-link {
+    font-size:1rem;
+  }
+  .navbar-nav {
     padding-left: 1rem;
   }
   .navbar-brand {
@@ -49,6 +53,13 @@ No media query since this is the default in Bootstrap because it is "mobile firs
     margin-top: 0px;
     line-height: 2rem;
   } /*1rem = 16px*/
+  .dropdown-menu {
+    background-color: #000000;  
+  }
+  .dropdown-menu a{
+    color:white;
+    padding-left: 10px;
+  }
 
   @media (min-width: 322px) {
     .header-title {

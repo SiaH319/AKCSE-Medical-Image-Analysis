@@ -28,7 +28,7 @@
                <br><br>
                <p class="file-return"></p>
                <br>
-               <input type="submit" class='btn-submit-image'>
+               <input type="submit" class='btn-submit-image' disabled>
             </form>
          </div>
 
@@ -51,6 +51,17 @@
          fileInput.addEventListener( "change", function( event ) {  
             the_return.innerHTML = "<p>Selected file: <br>" + this.value + "</p>";  
          });  
+
+         $(document).ready(
+            function(){
+               $('input:file').change(
+                  function(){
+                     if ($(this).val()) {
+                        $('input:submit').attr('disabled',false);
+                     } 
+                  }
+               );
+         });
          </script>
       
       </div>
