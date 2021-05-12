@@ -1,10 +1,13 @@
 
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("../css/navigation-bar.css");
 
 body {
     background: url('../images/mainpage.png') no-repeat;
     background-size: contain;
     background-color: black;
+    background-attachment: fixed;
+    background-position: 0px 30px;
     width: 100%;
     height: 100%;
     font-family: "Poppins", sans-serif;
@@ -14,78 +17,43 @@ body {
 /* Extra small devices (portrait phones, less than 544px) 
 No media query since this is the default in Bootstrap because it is "mobile first" */
 
-/* padding for navbar gets bigger */
-.navbar {
-  padding: .8rem; /*1 rem = 16 pixels*/
-  width: 100%;
-}
-.navbar-custom {
-  background-color: rgba(0, 0, 0,  0.6)    /* full opaque green */ 
-}
-/* padding for navbar item */
-.navbar-nav li {
-  padding-right: 20px;
-}
-/* this is a white icon */
-.navbar-toggler{
-  width: 47px;
-  height: 40px;
-  background-color: #000000;
-  border: solid #fff;
-}
-.navbar-toggler .line{
-  width: 100%;
-  float: left;
-  height: 2px;
-  background-color: #fff;
-  margin-bottom: 5px;
-}
-.nav-link {font-size:1rem;}
-  .navbar-nav {
-  padding-left: 1rem;
-}
-.navbar-brand {
-  padding: 1rem;
-  padding-top: 0.4rem;
-  text-transform: uppercase;
-  font-weight: bolder;
-  font-size: 2em;
-  display:table-cell;
-  vertical-align:middle;
-}
-.header-caption, .meet-team-caption {
+.header-caption{
   color: papayawhip;
   font-size:1.5rem;
   line-height: 20px;
   font-weight: bold;
+}
+.meet-team-caption {
+  color: papayawhip;
+  font-size:1.5rem;
+  line-height: 20px;
+  font-weight: bold;
+  text-transform:uppercase; 
+  text-align:center;
 }
 
 h2 {
   padding-left: 5%;
   text-shadow: 2px 2px #111111;
 }
-h1 {
-  font-size:1.4rem;
-  font-weight: bold;
-  margin-top: 0px;
-  line-height: 2rem;
-} /*1rem = 16px*/
-
+#header-section-margin {
+  margin-bottom: 25%;
+}
 #row-meet-team {
-  margin-top: 40%;
+  margin-top: 5%;
   font-weight: bold;
 }
 #team-member {
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .member {
   padding: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 
 .profile-img {
-  height:150px;
-  width: 150px;
+  height:130px;
+  width: 130px;
   border-radius: 50%;
   filter: grayscale(100%);
   cursor: pointer;
@@ -95,55 +63,84 @@ h1 {
   filter: grayscale(0);
 }
 .name {
-  font-size: 20px;
-  padding-top: 20px;
+  font-size: 18spx;
+  padding-top: 10px;
   color: papayawhip;
 }
 .role {
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 10px;
+  letter-spacing: 2px;
   color: #ccc;
 }
 .info {
-  font-size: 10px;
-  font-weight: 100;
-  letter-spacing: 1px;
+  font-size: 8px;
+  letter-spacing: 0px;
   color: #ccc;
 }
 .link-to-external-profile {
-  width: 60px;
-  padding: 5px;
+  width: 40px;
+  margin-top: 5px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
+.content {
+  background-color: rgba(0, 0, 0,  0.6)    /* full opaque green */ 
+}
 
+@media (min-width: 322px) {
+  #team-member {
+    margin-top: 10%;
+  }
+  .member {
+    padding: 20px;
+    padding-bottom: 50px;
+  }
+  .profile-img {
+    height:150px;
+    width: 150px;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    cursor: pointer;
+    transition: 400ms;
+  }
+  .profile-img:hover {
+    filter: grayscale(0);
+  }
+  .name {
+    font-size: 20px;
+    padding-top: 20px;
+    color: papayawhip;
+  }
+  .role {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #ccc;
+  }
+  .info {
+    font-size: 10px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #ccc;
+  }
+  .link-to-external-profile {
+    width: 50px;
+  }
+}
 @media (min-width: 460px) { 
   .header-caption {
     line-height:30px;
-  }
-  .meet-team-caption {
-    font-size: 20px;
   }
 }
 /* Bootstrap 4 breakpoints */
 /* Small devices (landscape phones, 544px and up) */
 @media (min-width: 544px) {  
-  h1 {
-    font-size:1.5rem;
-    margin-top: 3px;
-  }
-  .nav-link {font-size:1rem;}
-  .navbar-brand {
-    padding: 1rem; /*1 rem = 16 pixels*/
-  }
   .header-caption {
     font-size:2rem;
     line-height:40px;
   }
   .meet-team-caption {
     font-size: 25px;
-  }
-  .hidden-ss {
-    display: none !important;
   }
   .profile-img {
     height:200px;
@@ -171,7 +168,8 @@ h1 {
   }
   .link-to-external-profile {
     width: 60px;
-    padding: 5px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }
 @media (min-width: 630px) {  
@@ -218,18 +216,9 @@ h1 {
   }
   .link-to-external-profile {
     width: 60px;
-    padding: 5px;
   }
 }
 @media (min-width: 840px) { 
-  h1 {
-    font-size:1.8rem;
-    margin-top: 3px;
-  }
-  .nav-link {font-size:1.1rem;}
-  .navbar-brand {
-    padding: 1rem; /*1 rem = 16 pixels*/
-  }
   .header-caption {
     font-size:3rem;
     padding-top:3rem;
@@ -239,19 +228,6 @@ h1 {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
-  h1 {
-    font-size:2rem;
-    margin-top: 3px;
-  }
-  .nav-link {font-size:1.5rem;}
-  .navbar-brand {
-    padding: 1rem; /*1 rem = 16 pixels*/
-  }
-  .header-caption {
-    font-size:3rem;
-    padding-top:4rem;
-    line-height:60px;
-  }
   .header-caption {
     font-size:3.5rem;
     padding-top:4rem;
@@ -275,14 +251,8 @@ h1 {
   } 
 }
 @media (min-width: 1220px) {
-  h1 {font-size:2.5rem;}  
-  .nav-link {font-size:1.5rem;} 
 }
 @media (min-width: 1420px) {   
-  .nav-link {
-    font-size:1.5rem;
-    margin-right: 1.5rem;
-  } 
   .header-caption {
     font-size:5rem;
     padding-top:12rem;

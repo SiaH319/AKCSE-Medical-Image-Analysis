@@ -1,0 +1,124 @@
+/* Extra small devices (portrait phones, less than 544px) 
+No media query since this is the default in Bootstrap because it is "mobile first" */
+
+/* padding for navbar gets bigger */
+.navbar {
+    padding: .8rem; /*1 rem = 16 pixels*/
+    width: 100%;
+}
+.navbar-custom {
+    background-color: rgba(0, 0, 0);    /* full opaque green */ 
+}
+.navbar-collapse.collapse.show {
+    background-color: rgba(0,0,0, 0.6) !important;
+}
+/* padding for navbar item */
+.navbar-nav li {
+    padding-right: 20px;
+}
+  /* this is a white icon */
+  .navbar-toggler{
+    width: 47px;
+    height: 40px;
+    background-color: #000000;
+    border: solid #fff;
+  }
+  .navbar-toggler .line{
+    width: 100%;
+    float: left;
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 5px;
+  }
+  .nav-link {font-size:1rem;}
+    .navbar-nav {
+    padding-left: 1rem;
+  }
+  .navbar-brand {
+    padding: 1rem;
+    padding-top: 0.4rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2em;
+    display:table-cell;
+    vertical-align:middle;
+  }
+  .header-title {
+    font-size:1rem;
+    font-weight: bold;
+    margin-top: 0px;
+    line-height: 2rem;
+  } /*1rem = 16px*/
+
+  @media (min-width: 322px) {
+    .header-title {
+      font-size:1.4rem;
+      margin-top: 1.5px;
+    }
+  }
+  @media (min-width: 460px) { 
+  }
+  /* Bootstrap 4 breakpoints */
+  /* Small devices (landscape phones, 544px and up) */
+  @media (min-width: 544px) {  
+    .header-title {
+      font-size:1.5rem;
+      margin-top: 3px;
+    }
+    .nav-link {font-size:1rem;}
+    .navbar-brand {
+      padding: 1rem; /*1 rem = 16 pixels*/
+    }
+    .hidden-ss {
+      display: none !important;
+    }
+  }
+  @media (min-width: 630px) {  
+    .header-caption {
+      font-size:2.3rem;
+      padding-top:1rem;
+      line-height:40px;
+    }
+  }
+  
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 714px) {  
+  }
+  @media (min-width: 840px) { 
+    .header-title {
+      font-size:1.8rem;
+      margin-top: 3px;
+    }
+    .nav-link {font-size:1.1rem;}
+    .navbar-brand {
+      padding: 1rem; /*1 rem = 16 pixels*/
+    }
+  }
+  
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    .header-title {
+      font-size:2rem;
+      margin-top: 3px;
+    }
+    .nav-link {font-size:1.5rem;}
+    .navbar-brand {
+      padding: 1rem; /*1 rem = 16 pixels*/
+    }
+  }
+  @media (min-width: 1080px) {
+  }
+  
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) { 
+  }
+  @media (min-width: 1220px) {
+    .header-title {font-size:2.5rem;}  
+    .nav-link {font-size:1.5rem;} 
+  }
+  @media (min-width: 1420px) {   
+    .nav-link {
+      font-size:1.5rem;
+      margin-right: 1.5rem;
+    } 
+  }

@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!---->
+        {% include "header.html" %}
         <link rel="stylesheet" type="text/css" href="../static/css/stylesheet.css"/>
         <link rel="stylesheet" type="text/css" href="../static/css/animation.css"/>
         <link rel="icon" href="../static/images/logo.ico">
@@ -24,7 +15,7 @@
 
         <div class="container-fluid">
             <!-- HEADER SECTION -->
-            <div class='row'>
+            <div class='row' id='header-section-margin'>
                 <div class='col-12'>
                     <h2 class='header-caption float-left text-center fade-in'>
                         <p>AKCSE McGill 2020-2021: </p>
@@ -34,10 +25,11 @@
                 </div>
             </div>
 
+            <div class="container-fluid content pl-0 pr-0">
             <!-- MEET THE TEAM SECTION -->
             <div class='row' id='row-meet-team'>
                 <div class='col-12'>
-                    <h1 class="meet-team-caption" style="text-transform:uppercase; text-align:center;">Meet Our Team</h1>
+                    <h1 class="meet-team-caption">Meet Our Team</h1>
                 </div>
             </div>
 
@@ -114,6 +106,7 @@
                     <p class='info'>Marianopolis College, May 2021</p>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- FOOTER SECTION -->
