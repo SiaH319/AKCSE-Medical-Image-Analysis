@@ -5,6 +5,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, BatchNormalization, Flatten
 import numpy as np
 import os
+import jinja2
 
 curr = os.getcwd()
 
@@ -59,7 +60,7 @@ tumorModel.add(Dropout(0.5))
 tumorModel.add(Dense(4, activation='softmax'))
 tumorModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
+#tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
 
 COUNT = 0
 app = Flask(__name__)
@@ -69,10 +70,9 @@ app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 1
 def mainPage():
     return render_template('index-main.html')
 
-
 @app.route('/members')
 def members():
-    return render_template('index-member.html')
+    return render_template('index-main.html')
 
 @app.route('/project/description')
 def projectDescription():
@@ -88,7 +88,7 @@ def brainMappingDemoResult():
     global COUNT
     img = request.files['image']
 
-    img.save(__location__+'/static/{}.jpg'.format(COUNT))    
+    img.save(__location__+'/static/{}.jpg'.format(COUNT))
     img_arr = cv2.imread(__location__+'/static/{}.jpg'.format(COUNT))
     img_arr = cv2.resize(img_arr, (128,128))
     img_arr = img_arr / 255.0
@@ -110,7 +110,7 @@ def tumorDetectionDemoResult():
     global COUNT
     img = request.files['image']
 
-    img.save(__location__+'/static/{}.jpg'.format(COUNT))    
+    img.save(__location__+'/static/{}.jpg'.format(COUNT))
     img_arr = cv2.imread(__location__+'/static/{}.jpg'.format(COUNT))
 
     img_arr = cv2.resize(img_arr, (128,128))
@@ -157,7 +157,7 @@ def JamesSungLinkedin():
 @app.route('/dataset1')
 def dataset1():
     return redirect("https://www.kaggle.com/navoneel/brain-mri-images-for-brain-tumor-detection")
-               
+
 @app.route('/dataset2')
 def dataset2():
     return redirect("https://www.robots.ox.ac.uk/~vgg/software/via/")
@@ -172,6 +172,3 @@ def dataset4():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
