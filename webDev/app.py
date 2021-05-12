@@ -83,7 +83,7 @@ def brainMappingDemo():
     return render_template('project-demo-brain-mapping.html')
 
 
-@app.route('/project/brain-mapping/result', methods=['POST'])
+@app.route('/project/brain-mapping-result', methods=['POST'])
 def brainMappingDemoResult():
     global COUNT
     img = request.files['image']
