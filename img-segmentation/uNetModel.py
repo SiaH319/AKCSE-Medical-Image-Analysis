@@ -9,6 +9,7 @@ from tqdm import tqdm
 from skimage.io import imread, imshow
 from skimage.transform import resize
 import matplotlib.pyplot as plt
+from torch.utils.data import Dataset, DataLoader, random_split
 
 seed = 42
 np.random.seed = seed
@@ -19,34 +20,69 @@ IMG_HEIGHT = input_size[0]
 IMG_WIDTH = input_size[1]
 IMG_CHANNELS = input_size[2]
 
+PATH = os.getcwd().replace("/img-segmentation/unet_rhina3", "") + '/dataset/sagittal/all-augmented'
+masks, images = [],[]
+
+for file in os.listdir(PATH):
+    if '_mask_a' in file.split('.')[0]:
+        masks.append(os.path.join(PATH,file))
+    elif '_a' in file.split('.')[0]:
+        images.append(os.path.join(PATH,file)) 
+    elif '_mask' in file.split('.')[0]:
+        masks.append(os.path.join(PATH,file)) 
+    elif 'img' in file.split('.')[0]:
+        images.append(os.path.join(PATH,file)) 
+    else:
+        print("File is invalid.")
+
+images = sorted(images, key=lambda string: string.split('/')[-1].strip("img").split('.')[0].strip('_a'))
+images = sorted(images, key=lambda string: int(string.split('/')[-1].split('_')[0].strip('img').strip('.png')))
+masks = sorted(masks, key=lambda string: string.split('/')[-1].strip("img").split('.')[0].strip('_mask_a'))
+masks = sorted(masks, key=lambda string: int(string.split('/')[-1].split('_')[0].strip('img').strip('.png')))
+
+
+#data = (images, masks)
+
+# splitting to trainset and validation set
+TRAIN_PORTION = 0.8
+VAL_PORTION = 0.2
+
+length = len(images)
+train_length = int(length*TRAIN_PORTION)+1
+val_length = int(length*VAL_PORTION)
+
+'''
 TRAIN_PATH = "add_train_path_here/" #need to add path
 TEST_PATH = "add_test_path_here/" #need to add path
+trainset = next(os.walk(TRAIN_PATH))[1] #tuple where first entry is train path
+testset = next(os.walk(TEST_PATH))[1] #tuple where first entry is test path
+'''
 
-train_ids = next(os.walk(TRAIN_PATH))[1] #tuple where first entry is train path
-test_ids = next(os.walk(TEST_PATH))[1] #tuple where first entry is test path
+x_train, x_test, y_train, y_test = train_test_split(images, masks, test_size=0.33, random_state=4)
+#train_loader = torch.utils.data.DataLoader(dataset=trainset, batch_size=10,shuffle=True)
+#val_loader = torch.utils.data.DataLoader(dataset=valset, batch_size=10)
 
-X_train = np.zeros((len(train_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype = np.uint8)
-Y_train = np.zeros((len(train_ids), IMG_HEIGHT, IMG_WIDTH,1), dtype=np.bool)
+X_train = np.zeros((len(x_train), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype = np.uint8)
+Y_train = np.zeros((len(y_train), IMG_HEIGHT, IMG_WIDTH,1), dtype=np.bool)
 
 print("Resizing training images and masks")
-for n, id_ in tqdm(enumerate(train_ids), total=len(train_ids)):
-    path= TRAIN_PATH + id_
-    img = imread(path + "/images/" + id_ + ".png")[:,:,:IMG_CHANNELS]
+for path in tqdm(enumerate(X_train, Y_train), total=len(x_train)):
+    img = imread(x_train)[:,:,:IMG_CHANNELS]
     img = resize(img, (IMG_HEIGHT, IMG_WIDTH), mode = "constant", preserve_range = True)
     X_train[n] = img # Fill empty X_train with values from img
     mask = np.zeros((IMG_HEIGHT, IMG_WIDTH, 1), dtype = np.bool)
-    for mask_file in next(os.walk(path+ "/masks/"))[2]:
-        mask_ = imread(path+ "/masks/" + mask_file)
+
+    for mask_file in tqdm(enumerate(X_train, Y_train), total=len(x_train))]:
+        mask_ = imread(mask_file)
         mask_ = np.expand_dims(resize(mask_, (IMG_HEIGHT, IMG_WIDTH), mode = "constant", preserve_range = True), axis = -1)
         mask = np.maximum(mask, mask_)
-        
     Y_train[n] = mask
 
 #test images
-X_test = np.zeros((len(test_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
+X_test = np.zeros((len(valset), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
 sizes_test = []
 print("Resizing test images")
-for n, id_ in tqdm(enumerate(test_ids), total=len(test_ids)):
+for n, id_ in tqdm(enumerate(valset), total=len(valset)):
     path= TEST_PATH + id_
     img = imread(path + "/images/" + id_ + ".png")[:,:,:IMG_CHANNELS]
     sizes_test.append([img.shape[0], img.shape[1]])
