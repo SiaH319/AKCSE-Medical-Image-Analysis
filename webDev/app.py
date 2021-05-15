@@ -81,6 +81,7 @@ def projectDescription():
 def brainMappingDemo():
     return render_template('project-demo-brain-mapping.html')
 
+
 @app.route('/project/brain-mapping-result', methods=['POST'])
 def brainMappingDemoResult():
     global COUNT
@@ -124,28 +125,6 @@ def tumorDetectionDemoResult():
     preds = np.array([a,b,c,d])
     COUNT += 1
     return render_template('project-demo-tumor-detection-result.html', tumorData=preds)
-
-@app.route('/project/brain-segmentation')
-def brainSegmentationDemo():
-    return render_template('project-demo-brain-segmentation.html')
-
-@app.route('/project/brain-segmentation-result', methods=['POST'])
-def brainSegmentationDemoResult():
-    global COUNT
-    img = request.files['image']
-
-    img.save(__location__+'/static/inputs/{}.jpg'.format(COUNT))
-    img_arr = cv2.imread(__location__+'/static/inputs/{}.jpg'.format(COUNT))
-    img_arr = cv2.resize(img_arr, (128,128))
-    img_arr = img_arr / 255.0
-    img_arr = img_arr.reshape(1, 128,128,3)
-    prediction = uNetModel.predict(img_arr)     ####### TODO
-
-    x = round(prediction[0,0], 2)
-    y = round(prediction[0,1], 2)
-    preds = np.array([x,y])
-    COUNT += 1
-    return render_template('project-demo-brain-segmentation-result.html', data=preds)
 
 @app.route('/load_img')
 def load_img():
