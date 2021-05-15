@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      {% include "header.html" %}
+      <link rel="stylesheet" type="text/css" href="../static/css/stylesheet-projects-brain.css"/>
+      <link rel="stylesheet" type="text/css" href="../static/css/animation.css"/>
+      <link rel="icon" href="../static/images/logo.ico">
+      <title> - AKSCE: Medical Image Analysis Project</title>  <!-- TO DO -->
+   </head>
+
+   <body>
+      <!-- NAVIGATION BAR -->
+      {% include "navigation-bar.html" %}
+      
+
+      <!-- CONTENT -->
+      <div class='container-fluid main-section'>
+         <h1 class="main-caption">Brain Segmentation</h1> <!-- TO DO -->
+         <h1 class="main-caption"> 
+            🧠<br class='hidden-ss2'> Upload your <br class='hidden-ss1'> brain image! <br class='hidden-ss2'>🧠
+         </h1>
+
+         <div class='col-12 upload-img'>
+            <form method="POST" action="{{url_for('brainSegmentationDemoResult')}}" enctype="multipart/form-data">
+               <input type="file" id="file" name='image' class='btn-input-image' style = "color:black;"><br><br><br>
+               <label class='label-submit-image' for="file">
+               Upload your image
+               </label>
+               <br><br>
+               <p class="file-return"></p>
+               <br>
+               <input type="submit" class='btn-submit-image' disabled>
+            </form>
+         </div>
+
+         <script>
+         document.querySelector("html").classList.add('js');
+
+         var fileInput  = document.querySelector( ".btn-input-image" ),  
+            button     = document.querySelector( ".label-submit-image" ),
+            the_return = document.querySelector(".file-return");
+               
+         button.addEventListener( "keydown", function( event ) {  
+            if ( event.keyCode == 13 || event.keyCode == 32 ) {  
+               fileInput.focus();  
+            }  
+         });
+         button.addEventListener( "click", function( event ) {
+            fileInput.focus();
+            return false;
+         });  
+         fileInput.addEventListener( "change", function( event ) {  
+            the_return.innerHTML = "<p>Selected file: <br>" + this.value + "</p>";  
+         }); 
+
+         $(document).ready(
+            function(){
+               $('input:file').change(
+                  function(){
+                     if ($(this).val()) {
+                        $('input:submit').attr('disabled',false);
+                     } 
+                  }
+               );
+         });
+         </script>
+      
+      </div>
+
+
+      <!-- FOOTER SECTION -->
+      <div class='container-fluid p-0'>
+        {% include "footer.html" %}
+      </div>
+
+   </body>
+</html>
