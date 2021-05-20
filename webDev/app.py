@@ -3,6 +3,7 @@ import cv2
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, BatchNormalization, Flatten
+import test
 import numpy as np
 import os
 import jinja2
@@ -62,6 +63,36 @@ tumorModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics
 
 #tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
 
+inputCheckModel.load_weights(__location__+'/static/model/cat-and-sagittal.h5')
+
+'''
+mappingModel = Sequential()
+
+mappingModel.add(Conv2D(32, (3, 3), activation='relu', input_shape=(128,128,3)))
+mappingModel.add(BatchNormalization())
+mappingModel.add(MaxPooling2D(pool_size=(2, 2)))
+mappingModel.add(Dropout(0.25))
+
+mappingModel.add(Conv2D(64, (3, 3), activation='relu'))
+mappingModel.add(BatchNormalization())
+mappingModel.add(MaxPooling2D(pool_size=(2, 2)))
+mappingModel.add(Dropout(0.25))
+
+mappingModel.add(Conv2D(128, (3, 3), activation='relu'))
+mappingModel.add(BatchNormalization())
+mappingModel.add(MaxPooling2D(pool_size=(2, 2)))
+mappingModel.add(Dropout(0.25))
+
+mappingModel.add(Flatten())
+mappingModel.add(Dense(512, activation='relu'))
+mappingModel.add(BatchNormalization())
+mappingModel.add(Dropout(0.5))
+mappingModel.add(Dense(4, activation='softmax'))
+mappingModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+
+mappingModel.load_weights(__location__+'/static/model/unet_brainseg_final_model.h5')
+'''
+
 COUNT = 0
 app = Flask(__name__)
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 1
@@ -85,6 +116,7 @@ def brainMappingDemo():
 
 @app.route('/project/brain-mapping-result', methods=['POST'])
 def brainMappingDemoResult():
+    # Verify if input image is valid:
     global COUNT
     img = request.files['image']
 
@@ -99,6 +131,21 @@ def brainMappingDemoResult():
     y = round(prediction[0,1], 2)
     preds = np.array([x,y])
     COUNT += 1
+
+    # Segment the image
+    '''
+    model = load_model(__location__+'/static/model/unet_brainseg_final_model.h5')
+    test_gen = train_generator(df_test, 32, dict(), target_size=(256, 256))
+    results = model.evaluate(test_gen, steps=len(df_test) / 32)
+    print("Test lost: ",results[0])
+    print("Test IOU: ",results[1])
+    print("Test Dice Coefficent: ",results[2])
+    '''
+    test.run(img)
+    print("Test lost: ",results[0])
+    print("Test IOU: ",results[1])
+    print("Test Dice Coefficent: ",results[2])
+
     return render_template('project-demo-brain-mapping-result.html', data=preds)
 
 @app.route('/project/tumor-detection')
