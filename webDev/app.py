@@ -1,39 +1,15 @@
-from flask import Flask, redirect, render_template, request, send_from_directory
+from flask import Flask, redirect, render_template, request, send_from_directory, send_file
 import cv2
 from tensorflow import keras
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, BatchNormalization, Flatten
 import numpy as np
 import os
+import glob
+import shutil
 
 curr = os.getcwd()
-
-inputCheckModel = Sequential()
-
-inputCheckModel.add(Conv2D(32, (3, 3), activation='relu', input_shape=(128,128,3)))
-inputCheckModel.add(BatchNormalization())
-inputCheckModel.add(MaxPooling2D(pool_size=(2, 2)))
-inputCheckModel.add(Dropout(0.25))
-
-inputCheckModel.add(Conv2D(64, (3, 3), activation='relu'))
-inputCheckModel.add(BatchNormalization())
-inputCheckModel.add(MaxPooling2D(pool_size=(2, 2)))
-inputCheckModel.add(Dropout(0.25))
-
-inputCheckModel.add(Conv2D(128, (3, 3), activation='relu'))
-inputCheckModel.add(BatchNormalization())
-inputCheckModel.add(MaxPooling2D(pool_size=(2, 2)))
-inputCheckModel.add(Dropout(0.25))
-
-inputCheckModel.add(Flatten())
-inputCheckModel.add(Dense(512, activation='relu'))
-inputCheckModel.add(BatchNormalization())
-inputCheckModel.add(Dropout(0.5))
-inputCheckModel.add(Dense(2, activation='softmax'))
-inputCheckModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-
-inputCheckModel.load_weights(__location__+'/static/model/cat-and-sagittal.h5')
 
 tumorModel = Sequential()
 
@@ -59,7 +35,7 @@ tumorModel.add(Dropout(0.5))
 tumorModel.add(Dense(4, activation='softmax'))
 tumorModel.compile(loss='categorical_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
 
-#tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
+tumorModel.load_weights(__location__+'/static/model/tumor_final_model.h5')
 
 COUNT = 0
 app = Flask(__name__)
@@ -81,27 +57,16 @@ def projectDescription():
 def brainMappingDemo():
     return render_template('project-demo-brain-mapping.html')
 
-
-@app.route('/project/brain-mapping-result', methods=['POST'])
-def brainMappingDemoResult():
-    global COUNT
-    img = request.files['image']
-
-    img.save(__location__+'/static/inputs/{}.jpg'.format(COUNT))
-    img_arr = cv2.imread(__location__+'/static/inputs/{}.jpg'.format(COUNT))
-    img_arr = cv2.resize(img_arr, (128,128))
-    img_arr = img_arr / 255.0
-    img_arr = img_arr.reshape(1, 128,128,3)
-    prediction = inputCheckModel.predict(img_arr)
-
-    x = round(prediction[0,0], 2)
-    y = round(prediction[0,1], 2)
-    preds = np.array([x,y])
-    COUNT += 1
-    return render_template('project-demo-brain-mapping-result.html', data=preds)
-
+@app.route('/project/brain-mapping/download')
+def brainMappingDemoDownload():
+    return send_file(__location__+'/static/model/unet_brainseg_final_model.h5',as_attachment=True)
+    
 @app.route('/project/tumor-detection')
 def tumorDetectionDemo():
+    shutil.rmtree(__location__+'/static/inputs/')
+    os.mkdir(__location__+'/static/inputs/')
+
+
     return render_template('project-demo-tumor-detection.html')
 
 @app.route('/project/tumor-detection-result', methods=['POST'])
@@ -129,6 +94,9 @@ def tumorDetectionDemoResult():
 @app.route('/load_img')
 def load_img():
     global COUNT
+    if os.path.exists("0.jpg"):
+        os.remove("0.jpg")
+
     return send_from_directory(__location__+'/static/inputs', "{}.jpg".format(COUNT-1))
 
 @app.route('/SiaHamGithub')
@@ -138,6 +106,10 @@ def SiaHamGithub():
 @app.route('/SiaHamLinkedin')
 def SiaHamLinkedin():
     return redirect("https://www.linkedin.com/in/sia-ham")
+
+@app.route('/DanielKwonLinkedin')
+def DanielKwonLinkedin():
+    return redirect("https://www.linkedin.com/in/danielmjk98/")
 
 @app.route('/RhinaKimGithub')
 def RhinaKimGithub():
